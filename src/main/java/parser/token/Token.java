@@ -1,5 +1,6 @@
 package main.java.parser.token;
 
+import main.java.values.NullValue;
 import main.java.values.Value;
 
 // This class will handle the token, each token has type and value.
@@ -10,7 +11,7 @@ public class Token {
 
     public Token(TokenType type) {
         this.type = type;
-        this.value = null;
+        this.value = new NullValue();
     }
 
     public Token(TokenType type, Value value) {
@@ -26,12 +27,13 @@ public class Token {
         return value;
     }
 
+    @Override
     public String toString() {
 
         if (getValue().toString().isEmpty()) {
             return getType().toString();
         }
 
-        return String.format("(%s) %s", getType().toString().toLowerCase(), getValue().toString());
+        return "(" + getType().toString().toLowerCase() + ") " + getValue().toString();
     }
 }

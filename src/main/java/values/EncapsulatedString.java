@@ -15,9 +15,7 @@ public class EncapsulatedString extends Value {
     }
 
     public EncapsulatedString(ArrayList<StringValue> strings) {
-        for (StringValue string : strings) {
-            this.strings.add(string);
-        }
+        this.strings.addAll(strings);
     }
 
     public String getValue() {

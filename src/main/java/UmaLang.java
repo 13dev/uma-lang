@@ -23,7 +23,10 @@ public class UmaLang {
 
             String text = readFile("./src/main/java/file.uma");
             text = cleanCode(text);
+
             ArrayList<Token> tokens = parser.parse(text);
+
+            System.out.println(tokens);
 
         } catch (Exception ex) {
             throw ex;
