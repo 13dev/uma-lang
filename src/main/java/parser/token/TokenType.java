@@ -13,8 +13,8 @@ public enum TokenType {
 
     EQUALITY,
 
-    OPENBRAKET,
-    CLOSEBRAKET,
+    OPENBRACKET,
+    CLOSEBRACKET,
 
     OPENBRACES,
     CLOSEBRACES,
@@ -44,5 +44,5 @@ public enum TokenType {
     ELSEIF,
     ELSE,
 
-    PRINT
+    PRINT;
 }
