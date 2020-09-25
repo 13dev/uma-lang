@@ -1,0 +1,4 @@
+string[] ola = "ola";
+if("ola" == "ola") {
+    print("ola");
+}
