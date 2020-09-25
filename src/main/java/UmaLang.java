@@ -102,20 +102,11 @@ public class UmaLang {
         parserConfig.addSymbol("|", TokenType.OR);
         parserConfig.addKeyword("OR", TokenType.OR);
 
-        // Structural Symbols
+        // Struct Symbols
         parserConfig.addSymbol("(", TokenType.OPENBRACKET);
         parserConfig.addSymbol(")", TokenType.CLOSEBRACKET);
         parserConfig.addSymbol("{", TokenType.OPENBRACES);
         parserConfig.addSymbol("}", TokenType.CLOSEBRACES);
-
-        // Extra
-        parserConfig.addKeyword("create", TokenType.FUNCTION_DECLARE);
-        parserConfig.addKeyword("equals", TokenType.ASSIGNMENT);
-        parserConfig.addKeyword("equal", TokenType.ASSIGNMENT);
-        parserConfig.addKeyword("plus", TokenType.ADD);
-        parserConfig.addKeyword("minus", TokenType.SUBTRACT);
-        parserConfig.addKeyword("times", TokenType.MULTIPLY);
-        parserConfig.addKeyword("els", TokenType.ELSE);
 
         return parserConfig;
     }
