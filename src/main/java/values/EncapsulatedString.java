@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class EncapsulatedString extends Value {
 
-    protected ArrayList<StringValue> strings = new ArrayList<StringValue>();
+    protected ArrayList<StringValue> strings = new ArrayList<>();
 
     public EncapsulatedString(String string) {
         this.strings.add(new StringValue(string));
@@ -31,14 +31,13 @@ public class EncapsulatedString extends Value {
     }
 
     private String getFull() {
-        String output = "";
-        for (int i = 0; i < this.strings.size(); i++) {
+        StringBuilder output = new StringBuilder();
 
-            output += this.strings.get(i).getValue() + " ";
-
+        for (StringValue string : this.strings) {
+            output.append(string.getValue()).append(" ");
         }
 
-        return output.trim();
+        return output.toString().trim();
     }
 
     @Override

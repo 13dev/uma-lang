@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class Configuration {
 
-    private ArrayList<Keyword> keywords = new ArrayList<>();
-    private ArrayList<Symbol> symbols = new ArrayList<>();
+    private final ArrayList<Keyword> keywords = new ArrayList<>();
+    private final ArrayList<Symbol> symbols = new ArrayList<>();
 
     public void addKeyword(Keyword keyword) {
         keywords.add(keyword);

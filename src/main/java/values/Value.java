@@ -11,6 +11,6 @@ public abstract class Value {
 
     @Override
     public String toString() {
-        return getType() + "";
+        return getType().toString();
     }
 }

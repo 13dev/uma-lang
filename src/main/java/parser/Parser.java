@@ -44,8 +44,6 @@ public class Parser {
 
         String[] lineStrings = line.split("");
 
-        // TODO: parse all tokens
-
         for (String string : lineStrings) {
             parseAllTokens(string);
         }

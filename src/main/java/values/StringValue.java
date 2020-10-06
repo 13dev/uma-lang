@@ -5,7 +5,7 @@ import main.java.parser.token.Token;
 import main.java.parser.token.TokenType;
 
 public class StringValue extends Value {
-    private String value;
+    private final String value;
 
     public StringValue(String string) {
         this.value = string;
