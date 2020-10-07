@@ -21,8 +21,9 @@ public class UmaLang {
 
         try {
 
-            String text = readFile("./src/main/java/file.uma");
-            text = cleanCode(text);
+            String text = cleanCode(
+                    readFile("./src/main/java/file.uma")
+            );
 
             ArrayList<Token> tokens = parser.parse(text);
 
@@ -48,21 +49,27 @@ public class UmaLang {
 
     public static String cleanCode(String text) {
 
+
         while (true) {
 
             int returnIndex = text.indexOf("\r");
             int tabIndex = text.indexOf("\t");
 
+
             int index;
             if (returnIndex != -1) {
                 index = returnIndex;
+                System.out.println("Return index: " + returnIndex);
+
             } else if (tabIndex != -1) {
                 index = tabIndex;
+                System.out.println("Tab index: " + tabIndex);
             } else {
                 break;
             }
+            System.out.println("Text " + text.substring(0, index) + text.substring(index + "\r".length()));
+            text = text.substring(0, index) + text.substring(index + "\r".length());
 
-            text = text.substring(0, index) + "\n" + text.substring(index + "\r".length());
         }
 
         return text;
@@ -96,11 +103,7 @@ public class UmaLang {
         // Equality Operators
         parserConfig.addSymbol("==", TokenType.EQUALITY);
         parserConfig.addSymbol("&&", TokenType.AND);
-        parserConfig.addSymbol("&", TokenType.AND);
-        parserConfig.addKeyword("AND", TokenType.AND);
         parserConfig.addSymbol("||", TokenType.OR);
-        parserConfig.addSymbol("|", TokenType.OR);
-        parserConfig.addKeyword("OR", TokenType.OR);
 
         // Struct Symbols
         parserConfig.addSymbol("(", TokenType.OPENBRACKET);
