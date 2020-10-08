@@ -51,7 +51,7 @@ public class UmaLang {
 
 
         while (true) {
-
+            // TODO: refactor this.
             int returnIndex = text.indexOf("\r");
             int tabIndex = text.indexOf("\t");
 
