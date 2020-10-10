@@ -1,7 +1,5 @@
 // Generated from UmaLang.g4 by ANTLR 4.3
-
-    package com.umalang.antlr;
-
+package com.umalang.antlr.generated;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.NotNull;

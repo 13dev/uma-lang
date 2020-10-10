@@ -1,9 +1,5 @@
 grammar UmaLang;
 
-@header {
-    package com.umalang.antlr;
-}
-
 variableType    : 'boolean' ('[' ']')*
                 | 'string' ('[' ']')*
                 | 'char' ('[' ']')*

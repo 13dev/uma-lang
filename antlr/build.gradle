@@ -34,11 +34,9 @@ plugins {
     id 'java'
     id 'antlr'
 }
-
-group GROUP
+group 'com.umalang.antlr'
 version VERSION
 
-sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -54,21 +52,21 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     antlr "org.antlr:antlr4:4.3" // use ANTLR version 4, default is 2.x which is wrong
     compile "org.antlr:antlr4-runtime:4.3"
+    compile "org.antlr:antlr4:4.3"
 }
 
 generateGrammarSource {
+    outputs.upToDateWhen { false }
     maxHeapSize = "64m"
     arguments += ["-visitor", "-long-messages"]
+    arguments += ['-package', 'com.umalang.antlr.generated']
+
     // Keep a copy of generated sources
     doLast {
         println "Copying generated grammar lexer/parser..."
         copy {
             from "${buildDir}/generated-src/antlr/main"
-            into "src/main/antlr/output"
+            into "src/main/com/umalang/antlr/generated"
         }
     }
-}
-
-clean.doLast {
-    file('generated-src').deleteDir()
 }
