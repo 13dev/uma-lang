@@ -1,2 +1,4 @@
 rootProject.name = 'uma-lang'
+include 'antlr'
+include 'compiler'
 

@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.dev13'
+group 'com.umalang.compiler'
 version '1.0-SNAPSHOT'
 
 repositories {
