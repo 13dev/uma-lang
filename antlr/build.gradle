@@ -66,7 +66,7 @@ generateGrammarSource {
         println "Copying generated grammar lexer/parser..."
         copy {
             from "${buildDir}/generated-src/antlr/main"
-            into "src/main/com/umalang/antlr/generated"
+            into "src/main/java/com/umalang/antlr/generated"
         }
     }
 }
