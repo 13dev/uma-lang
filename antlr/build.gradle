@@ -1,0 +1,75 @@
+//plugins {
+//    id 'java'
+//    id 'antlr'
+//}
+//
+//group 'com.umalang.antlr'
+//version '1.0-SNAPSHOT'
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+//    antlr 'org.antlr:antlr4:4.3'
+//    compile 'org.antlr:antlr4-runtime:4.3'
+//}
+//
+//generateGrammarSource {
+//
+//    maxHeapSize = "64m"
+//    arguments += ["-visitor", "-long-messages"]
+//
+//    doLast {
+//        println "Copying generated grammar lexer/parser files to main directory."
+//        copy {
+//            from "${buildDir}/generated-src/antlr/main"
+//            into "generated-src/main/java"
+//        }
+//    }
+//}
+
+plugins {
+    id 'java'
+    id 'antlr'
+}
+group 'com.umalang.antlr'
+version VERSION
+
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    compile {
+        extendsFrom = extendsFrom.findAll { it != configurations.antlr }
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    antlr "org.antlr:antlr4:4.3" // use ANTLR version 4, default is 2.x which is wrong
+    compile "org.antlr:antlr4-runtime:4.3"
+    compile "org.antlr:antlr4:4.3"
+}
+
+generateGrammarSource {
+    outputs.upToDateWhen { false }
+    maxHeapSize = "64m"
+    arguments += ["-visitor", "-long-messages"]
+    arguments += ['-package', 'com.umalang.antlr.generated']
+
+    // Keep a copy of generated sources
+    doLast {
+        println "Copying generated grammar lexer/parser..."
+        copy {
+            from "${buildDir}/generated-src/antlr/main"
+            into "src/main/java/com/umalang/antlr/generated"
+        }
+
+        println "Deleting build dir..."
+        delete "${buildDir}/generated-src/antlr"
+    }
+}
