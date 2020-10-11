@@ -13,24 +13,17 @@ variableType    : 'boolean' ('[' ']')*
 
 primitiveType   : variableType | 'void' ('[' ']')*
                 ;
+compilationUnit : ( variable | print )* EOF;
+variable : variableType ID EQUALS value SEMICOLON;
+print : PRINT ID SEMICOLON ;
+value : NUMBER
+      | STRING ;
 
-compilationUnit : ( variable | print )* EOF
-                ; // our code consist consist only of variables and prints
-
-variable    : ID EQUALS value
-            ; // token followed by ID token followed by EQUALS TOKEN
-
-print   : PRINT ID
-        ; //print statement must consist of 'print' keyword and ID
-
-value : op=NUMBER
-      | op=STRING
-      ; //NUMBER | STRING
-
-// tokens
+//lexer rules (tokens)
+SEMICOLON : ';' ;
 PRINT : 'print' ;
-EQUALS : '=' ;
-BOOL : 'true' | 'false' ;
-ID : [a-zA-Z0-9]+ ;
+EQUALS : '=' ; //must be '='
 NUMBER : [0-9]+ ; //must consist only of digits
-STRING : '"'.*'"' ;
+STRING : '"'.*?'"' ; //must be anything in qutoes
+ID : [a-zA-Z0-9]+ ; //must be any alphanumeric value
+WS: [ \t\n\r]+ -> skip ; //special TOKEN for skipping whitespaces

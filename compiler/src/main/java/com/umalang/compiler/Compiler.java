@@ -39,7 +39,7 @@ public class Compiler {
 
         final byte[] byteCode = new Generator().generateBytecode(instructionsQueue, umaClassName);
 
-        OutputStream os = new FileOutputStream(umaFile.getName() + ".class");
+        OutputStream os = new FileOutputStream(umaClassName + ".class");
         os.write(byteCode);
         os.close();
 

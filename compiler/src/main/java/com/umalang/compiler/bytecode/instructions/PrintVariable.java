@@ -23,11 +23,11 @@ public class PrintVariable implements Instruction, Opcodes {
         methodVisitor.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
 
         switch (type) {
-            case UmaLangLexer.NUMBER: {
+            case UmaLangLexer.NUMBER -> {
                 methodVisitor.visitVarInsn(ILOAD, id);
                 methodVisitor.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V", false);
             }
-            case UmaLangLexer.STRING: {
+            case UmaLangLexer.STRING -> {
                 methodVisitor.visitVarInsn(ALOAD, id);
                 methodVisitor.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
             }
