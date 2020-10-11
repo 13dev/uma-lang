@@ -30,6 +30,45 @@ public class UmaLangBaseListener implements UmaLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPrint(@NotNull UmaLangParser.PrintContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrint(@NotNull UmaLangParser.PrintContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCompilationUnit(@NotNull UmaLangParser.CompilationUnitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCompilationUnit(@NotNull UmaLangParser.CompilationUnitContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariable(@NotNull UmaLangParser.VariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariable(@NotNull UmaLangParser.VariableContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterPrimitiveType(@NotNull UmaLangParser.PrimitiveTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -37,6 +76,19 @@ public class UmaLangBaseListener implements UmaLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPrimitiveType(@NotNull UmaLangParser.PrimitiveTypeContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterValue(@NotNull UmaLangParser.ValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitValue(@NotNull UmaLangParser.ValueContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

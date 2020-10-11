@@ -11,28 +11,30 @@ import java.util.Queue;
 
 public class Generator implements Opcodes {
 
-    public byte[] generateByteCode(Queue<Instruction> instructionQueue, String name) {
+    public byte[] generateBytecode(Queue<Instruction> instructionQueue, String name) {
         ClassWriter classWriter = new ClassWriter(0);
         MethodVisitor methodVisitor;
 
-        //version , acess, name, signature, base class, interfaes
-        classWriter.visit(52, ACC_PUBLIC + ACC_SUPER, name, null, "java/lang/Object", null);
-        {
-            //declare static void main
-            methodVisitor = classWriter.visitMethod(ACC_PUBLIC + ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
-            final long localVariablesCount = instructionQueue.stream()
-                    .filter(instruction -> instruction instanceof VariableDeclaration)
-                    .count();
+        //version , acess, name, signature, base class (Object), interface
+        classWriter.visit(52, ACC_PUBLIC + ACC_SUPER + ACC_FINAL, name, null, "java/lang/Object", null);
 
-            //apply instructions generated from traversing parse tree!
-            for (Instruction instruction : instructionQueue) {
-                instruction.apply(methodVisitor);
-            }
+        //declare static void main (parameters...)
+        methodVisitor = classWriter.visitMethod(ACC_PUBLIC + ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
 
-            methodVisitor.visitInsn(RETURN); //add return instruction
-            methodVisitor.visitMaxs(100, (int) localVariablesCount); //set max stack and max local variables
-            methodVisitor.visitEnd();
+        // count how many local vars have in queue.
+        final long localVariablesCount = instructionQueue.stream()
+                .filter(instruction -> instruction instanceof VariableDeclaration)
+                .count();
+
+        //apply instructions generated from traversing parse tree!
+        for (Instruction instruction : instructionQueue) {
+            instruction.apply(methodVisitor);
         }
+
+        methodVisitor.visitInsn(RETURN); //add return instruction
+        methodVisitor.visitMaxs(100, (int) localVariablesCount); //set max stack and max local variables
+        methodVisitor.visitEnd();
+
 
         classWriter.visitEnd();
         return classWriter.toByteArray();

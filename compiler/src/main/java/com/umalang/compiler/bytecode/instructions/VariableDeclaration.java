@@ -8,7 +8,7 @@ import org.objectweb.asm.Opcodes;
 
 public class VariableDeclaration implements Instruction, Opcodes {
 
-    private Variable var;
+    private final Variable var;
 
     public VariableDeclaration(Variable var) {
         this.var = var;
@@ -16,15 +16,18 @@ public class VariableDeclaration implements Instruction, Opcodes {
 
     @Override
     public void apply(MethodVisitor methodVisitor) {
-        final int type = var.getType();
-        if (type == UmaLangLexer.NUMBER) {
-            int val = Integer.parseInt(var.getValue());
-            methodVisitor.visitIntInsn(BIPUSH, val);
-            methodVisitor.visitVarInsn(ISTORE, var.getId());
+        switch (var.getType()) {
+            case UmaLangLexer.NUMBER:
+            {
+                methodVisitor.visitIntInsn(BIPUSH, Integer.parseInt(var.getValue()));
+                methodVisitor.visitVarInsn(ISTORE, var.getId());
+            }
+            case UmaLangLexer.STRING:
+            {
+                methodVisitor.visitLdcInsn(var.getValue());
+                methodVisitor.visitVarInsn(ASTORE, var.getId());
+            }
 
-        } else if (type == UmaLangLexer.STRING) {
-            methodVisitor.visitLdcInsn(var.getValue());
-            methodVisitor.visitVarInsn(ASTORE, var.getId());
         }
     }
 }

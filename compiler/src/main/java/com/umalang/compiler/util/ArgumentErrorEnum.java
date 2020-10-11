@@ -6,7 +6,7 @@ public enum ArgumentErrorEnum {
     NO_FILE("No file for compilation."),
     BAD_FILE_EXTENSION("File has to end with .uma extension.");
 
-    private String message;
+    private final String message;
 
     ArgumentErrorEnum(String message) {
         this.message = message;

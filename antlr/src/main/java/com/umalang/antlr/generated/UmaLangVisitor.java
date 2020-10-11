@@ -19,9 +19,37 @@ public interface UmaLangVisitor<T> extends ParseTreeVisitor<T> {
 	T visitVariableType(@NotNull UmaLangParser.VariableTypeContext ctx);
 
 	/**
+	 * Visit a parse tree produced by {@link UmaLangParser#print}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrint(@NotNull UmaLangParser.PrintContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link UmaLangParser#compilationUnit}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCompilationUnit(@NotNull UmaLangParser.CompilationUnitContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link UmaLangParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariable(@NotNull UmaLangParser.VariableContext ctx);
+
+	/**
 	 * Visit a parse tree produced by {@link UmaLangParser#primitiveType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPrimitiveType(@NotNull UmaLangParser.PrimitiveTypeContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link UmaLangParser#value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitValue(@NotNull UmaLangParser.ValueContext ctx);
 }

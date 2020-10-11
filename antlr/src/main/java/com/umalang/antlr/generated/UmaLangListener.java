@@ -20,6 +20,39 @@ public interface UmaLangListener extends ParseTreeListener {
 	void exitVariableType(@NotNull UmaLangParser.VariableTypeContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link UmaLangParser#print}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrint(@NotNull UmaLangParser.PrintContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link UmaLangParser#print}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrint(@NotNull UmaLangParser.PrintContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link UmaLangParser#compilationUnit}.
+	 * @param ctx the parse tree
+	 */
+	void enterCompilationUnit(@NotNull UmaLangParser.CompilationUnitContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link UmaLangParser#compilationUnit}.
+	 * @param ctx the parse tree
+	 */
+	void exitCompilationUnit(@NotNull UmaLangParser.CompilationUnitContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link UmaLangParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariable(@NotNull UmaLangParser.VariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link UmaLangParser#variable}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariable(@NotNull UmaLangParser.VariableContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link UmaLangParser#primitiveType}.
 	 * @param ctx the parse tree
 	 */
@@ -29,4 +62,15 @@ public interface UmaLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPrimitiveType(@NotNull UmaLangParser.PrimitiveTypeContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link UmaLangParser#value}.
+	 * @param ctx the parse tree
+	 */
+	void enterValue(@NotNull UmaLangParser.ValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link UmaLangParser#value}.
+	 * @param ctx the parse tree
+	 */
+	void exitValue(@NotNull UmaLangParser.ValueContext ctx);
 }
