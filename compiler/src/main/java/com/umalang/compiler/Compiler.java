@@ -6,7 +6,6 @@ import com.umalang.compiler.bytecode.instructions.Instruction;
 import com.umalang.compiler.parser.SyntaxTreeTraverser;
 import com.umalang.compiler.util.ArgumentErrorEnum;
 import org.apache.commons.lang3.StringUtils;
-import org.stringtemplate.v4.compiler.Bytecode;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,7 +23,7 @@ public class Compiler {
         final ArgumentErrorEnum argsErrors = getArgumentValidationErrors(args);
 
         // get argument errors
-        if(argsErrors != ArgumentErrorEnum.NONE) {
+        if (argsErrors != ArgumentErrorEnum.NONE) {
             System.out.println(argsErrors.getMessage());
             return;
         }
@@ -34,10 +33,13 @@ public class Compiler {
 
         String umaClassName = StringUtils.remove(umaFile.getName(), ".uma");
 
-        final Queue<Instruction> instructionsQueue = new SyntaxTreeTraverser().getInstructions(fileAbsolutePath);
+        final Queue<Instruction> instructionsQueue = new SyntaxTreeTraverser().getInstructions(
+                umaFile.getAbsolutePath()
+        );
+
         final byte[] byteCode = new Generator().generateBytecode(instructionsQueue, umaClassName);
 
-        OutputStream os = new FileOutputStream(fileName + ".class");
+        OutputStream os = new FileOutputStream(umaClassName + ".class");
         os.write(byteCode);
         os.close();
 

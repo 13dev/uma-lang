@@ -18,12 +18,12 @@ public class UmaLangParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__11=1, T__10=2, T__9=3, T__8=4, T__7=5, T__6=6, T__5=7, T__4=8, T__3=9, 
-		T__2=10, T__1=11, T__0=12, PRINT=13, EQUALS=14, BOOL=15, ID=16, NUMBER=17, 
-		STRING=18;
+		T__2=10, T__1=11, T__0=12, SEMICOLON=13, PRINT=14, EQUALS=15, NUMBER=16, 
+		STRING=17, ID=18, WS=19;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'short'", "'string'", "'double'", "'char'", "'int'", "'boolean'", 
-		"'long'", "'float'", "'void'", "'['", "'byte'", "']'", "'print'", "'='", 
-		"BOOL", "ID", "NUMBER", "STRING"
+		"'long'", "'float'", "'void'", "'['", "'byte'", "']'", "';'", "'print'", 
+		"'='", "NUMBER", "STRING", "ID", "WS"
 	};
 	public static final int
 		RULE_variableType = 0, RULE_primitiveType = 1, RULE_compilationUnit = 2, 
@@ -396,11 +396,19 @@ public class UmaLangParser extends Parser {
 			setState(101);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==PRINT || _la==ID) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__11) | (1L << T__10) | (1L << T__9) | (1L << T__8) | (1L << T__7) | (1L << T__6) | (1L << T__5) | (1L << T__4) | (1L << T__1) | (1L << PRINT))) != 0)) {
 				{
 				setState(99);
 				switch (_input.LA(1)) {
-				case ID:
+				case T__11:
+				case T__10:
+				case T__9:
+				case T__8:
+				case T__7:
+				case T__6:
+				case T__5:
+				case T__4:
+				case T__1:
 					{
 					setState(97); variable();
 					}
@@ -435,8 +443,12 @@ public class UmaLangParser extends Parser {
 	public static class VariableContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(UmaLangParser.ID, 0); }
 		public TerminalNode EQUALS() { return getToken(UmaLangParser.EQUALS, 0); }
+		public TerminalNode SEMICOLON() { return getToken(UmaLangParser.SEMICOLON, 0); }
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
+		}
+		public VariableTypeContext variableType() {
+			return getRuleContext(VariableTypeContext.class,0);
 		}
 		public VariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -463,9 +475,11 @@ public class UmaLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(106); match(ID);
-			setState(107); match(EQUALS);
-			setState(108); value();
+			setState(106); variableType();
+			setState(107); match(ID);
+			setState(108); match(EQUALS);
+			setState(109); value();
+			setState(110); match(SEMICOLON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -481,6 +495,7 @@ public class UmaLangParser extends Parser {
 
 	public static class PrintContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(UmaLangParser.ID, 0); }
+		public TerminalNode SEMICOLON() { return getToken(UmaLangParser.SEMICOLON, 0); }
 		public TerminalNode PRINT() { return getToken(UmaLangParser.PRINT, 0); }
 		public PrintContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -507,8 +522,9 @@ public class UmaLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(110); match(PRINT);
-			setState(111); match(ID);
+			setState(112); match(PRINT);
+			setState(113); match(ID);
+			setState(114); match(SEMICOLON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -523,7 +539,6 @@ public class UmaLangParser extends Parser {
 	}
 
 	public static class ValueContext extends ParserRuleContext {
-		public Token op;
 		public TerminalNode STRING() { return getToken(UmaLangParser.STRING, 0); }
 		public TerminalNode NUMBER() { return getToken(UmaLangParser.NUMBER, 0); }
 		public ValueContext(ParserRuleContext parent, int invokingState) {
@@ -548,23 +563,16 @@ public class UmaLangParser extends Parser {
 	public final ValueContext value() throws RecognitionException {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_value);
+		int _la;
 		try {
-			setState(115);
-			switch (_input.LA(1)) {
-			case NUMBER:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(113); ((ValueContext)_localctx).op = match(NUMBER);
-				}
-				break;
-			case STRING:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(114); ((ValueContext)_localctx).op = match(STRING);
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(116);
+			_la = _input.LA(1);
+			if ( !(_la==NUMBER || _la==STRING) ) {
+			_errHandler.recoverInline(this);
+			}
+			consume();
 			}
 		}
 		catch (RecognitionException re) {
@@ -579,7 +587,7 @@ public class UmaLangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\24x\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\25y\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\2\7\2\22\n\2\f\2\16\2\25"+
 		"\13\2\3\2\3\2\3\2\7\2\32\n\2\f\2\16\2\35\13\2\3\2\3\2\3\2\7\2\"\n\2\f"+
 		"\2\16\2%\13\2\3\2\3\2\3\2\7\2*\n\2\f\2\16\2-\13\2\3\2\3\2\3\2\7\2\62\n"+
@@ -587,29 +595,29 @@ public class UmaLangParser extends Parser {
 		"\2B\n\2\f\2\16\2E\13\2\3\2\3\2\3\2\7\2J\n\2\f\2\16\2M\13\2\3\2\3\2\3\2"+
 		"\7\2R\n\2\f\2\16\2U\13\2\5\2W\n\2\3\3\3\3\3\3\3\3\7\3]\n\3\f\3\16\3`\13"+
 		"\3\5\3b\n\3\3\4\3\4\7\4f\n\4\f\4\16\4i\13\4\3\4\3\4\3\5\3\5\3\5\3\5\3"+
-		"\6\3\6\3\6\3\7\3\7\5\7v\n\7\3\7\2\2\b\2\4\6\b\n\f\2\2\u0087\2V\3\2\2\2"+
-		"\4a\3\2\2\2\6g\3\2\2\2\bl\3\2\2\2\np\3\2\2\2\fu\3\2\2\2\16\23\7\b\2\2"+
-		"\17\20\7\f\2\2\20\22\7\16\2\2\21\17\3\2\2\2\22\25\3\2\2\2\23\21\3\2\2"+
-		"\2\23\24\3\2\2\2\24W\3\2\2\2\25\23\3\2\2\2\26\33\7\4\2\2\27\30\7\f\2\2"+
-		"\30\32\7\16\2\2\31\27\3\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2"+
-		"\2\34W\3\2\2\2\35\33\3\2\2\2\36#\7\6\2\2\37 \7\f\2\2 \"\7\16\2\2!\37\3"+
-		"\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$W\3\2\2\2%#\3\2\2\2&+\7\r\2\2\'"+
-		"(\7\f\2\2(*\7\16\2\2)\'\3\2\2\2*-\3\2\2\2+)\3\2\2\2+,\3\2\2\2,W\3\2\2"+
-		"\2-+\3\2\2\2.\63\7\3\2\2/\60\7\f\2\2\60\62\7\16\2\2\61/\3\2\2\2\62\65"+
-		"\3\2\2\2\63\61\3\2\2\2\63\64\3\2\2\2\64W\3\2\2\2\65\63\3\2\2\2\66;\7\7"+
-		"\2\2\678\7\f\2\28:\7\16\2\29\67\3\2\2\2:=\3\2\2\2;9\3\2\2\2;<\3\2\2\2"+
-		"<W\3\2\2\2=;\3\2\2\2>C\7\t\2\2?@\7\f\2\2@B\7\16\2\2A?\3\2\2\2BE\3\2\2"+
-		"\2CA\3\2\2\2CD\3\2\2\2DW\3\2\2\2EC\3\2\2\2FK\7\n\2\2GH\7\f\2\2HJ\7\16"+
-		"\2\2IG\3\2\2\2JM\3\2\2\2KI\3\2\2\2KL\3\2\2\2LW\3\2\2\2MK\3\2\2\2NS\7\5"+
-		"\2\2OP\7\f\2\2PR\7\16\2\2QO\3\2\2\2RU\3\2\2\2SQ\3\2\2\2ST\3\2\2\2TW\3"+
-		"\2\2\2US\3\2\2\2V\16\3\2\2\2V\26\3\2\2\2V\36\3\2\2\2V&\3\2\2\2V.\3\2\2"+
-		"\2V\66\3\2\2\2V>\3\2\2\2VF\3\2\2\2VN\3\2\2\2W\3\3\2\2\2Xb\5\2\2\2Y^\7"+
-		"\13\2\2Z[\7\f\2\2[]\7\16\2\2\\Z\3\2\2\2]`\3\2\2\2^\\\3\2\2\2^_\3\2\2\2"+
-		"_b\3\2\2\2`^\3\2\2\2aX\3\2\2\2aY\3\2\2\2b\5\3\2\2\2cf\5\b\5\2df\5\n\6"+
-		"\2ec\3\2\2\2ed\3\2\2\2fi\3\2\2\2ge\3\2\2\2gh\3\2\2\2hj\3\2\2\2ig\3\2\2"+
-		"\2jk\7\2\2\3k\7\3\2\2\2lm\7\22\2\2mn\7\20\2\2no\5\f\7\2o\t\3\2\2\2pq\7"+
-		"\17\2\2qr\7\22\2\2r\13\3\2\2\2sv\7\23\2\2tv\7\24\2\2us\3\2\2\2ut\3\2\2"+
-		"\2v\r\3\2\2\2\21\23\33#+\63;CKSV^aegu";
+		"\5\3\5\3\6\3\6\3\6\3\6\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\3\3\2\22\23\u0087"+
+		"\2V\3\2\2\2\4a\3\2\2\2\6g\3\2\2\2\bl\3\2\2\2\nr\3\2\2\2\fv\3\2\2\2\16"+
+		"\23\7\b\2\2\17\20\7\f\2\2\20\22\7\16\2\2\21\17\3\2\2\2\22\25\3\2\2\2\23"+
+		"\21\3\2\2\2\23\24\3\2\2\2\24W\3\2\2\2\25\23\3\2\2\2\26\33\7\4\2\2\27\30"+
+		"\7\f\2\2\30\32\7\16\2\2\31\27\3\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33\34"+
+		"\3\2\2\2\34W\3\2\2\2\35\33\3\2\2\2\36#\7\6\2\2\37 \7\f\2\2 \"\7\16\2\2"+
+		"!\37\3\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$W\3\2\2\2%#\3\2\2\2&+\7\r"+
+		"\2\2\'(\7\f\2\2(*\7\16\2\2)\'\3\2\2\2*-\3\2\2\2+)\3\2\2\2+,\3\2\2\2,W"+
+		"\3\2\2\2-+\3\2\2\2.\63\7\3\2\2/\60\7\f\2\2\60\62\7\16\2\2\61/\3\2\2\2"+
+		"\62\65\3\2\2\2\63\61\3\2\2\2\63\64\3\2\2\2\64W\3\2\2\2\65\63\3\2\2\2\66"+
+		";\7\7\2\2\678\7\f\2\28:\7\16\2\29\67\3\2\2\2:=\3\2\2\2;9\3\2\2\2;<\3\2"+
+		"\2\2<W\3\2\2\2=;\3\2\2\2>C\7\t\2\2?@\7\f\2\2@B\7\16\2\2A?\3\2\2\2BE\3"+
+		"\2\2\2CA\3\2\2\2CD\3\2\2\2DW\3\2\2\2EC\3\2\2\2FK\7\n\2\2GH\7\f\2\2HJ\7"+
+		"\16\2\2IG\3\2\2\2JM\3\2\2\2KI\3\2\2\2KL\3\2\2\2LW\3\2\2\2MK\3\2\2\2NS"+
+		"\7\5\2\2OP\7\f\2\2PR\7\16\2\2QO\3\2\2\2RU\3\2\2\2SQ\3\2\2\2ST\3\2\2\2"+
+		"TW\3\2\2\2US\3\2\2\2V\16\3\2\2\2V\26\3\2\2\2V\36\3\2\2\2V&\3\2\2\2V.\3"+
+		"\2\2\2V\66\3\2\2\2V>\3\2\2\2VF\3\2\2\2VN\3\2\2\2W\3\3\2\2\2Xb\5\2\2\2"+
+		"Y^\7\13\2\2Z[\7\f\2\2[]\7\16\2\2\\Z\3\2\2\2]`\3\2\2\2^\\\3\2\2\2^_\3\2"+
+		"\2\2_b\3\2\2\2`^\3\2\2\2aX\3\2\2\2aY\3\2\2\2b\5\3\2\2\2cf\5\b\5\2df\5"+
+		"\n\6\2ec\3\2\2\2ed\3\2\2\2fi\3\2\2\2ge\3\2\2\2gh\3\2\2\2hj\3\2\2\2ig\3"+
+		"\2\2\2jk\7\2\2\3k\7\3\2\2\2lm\5\2\2\2mn\7\24\2\2no\7\21\2\2op\5\f\7\2"+
+		"pq\7\17\2\2q\t\3\2\2\2rs\7\20\2\2st\7\24\2\2tu\7\17\2\2u\13\3\2\2\2vw"+
+		"\t\2\2\2w\r\3\2\2\2\20\23\33#+\63;CKSV^aeg";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
