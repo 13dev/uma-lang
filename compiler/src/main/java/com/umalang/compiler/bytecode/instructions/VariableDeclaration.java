@@ -17,13 +17,11 @@ public class VariableDeclaration implements Instruction, Opcodes {
     @Override
     public void apply(MethodVisitor methodVisitor) {
         switch (var.getType()) {
-            case UmaLangLexer.NUMBER:
-            {
+            case UmaLangLexer.NUMBER: {
                 methodVisitor.visitIntInsn(BIPUSH, Integer.parseInt(var.getValue()));
                 methodVisitor.visitVarInsn(ISTORE, var.getId());
             }
-            case UmaLangLexer.STRING:
-            {
+            case UmaLangLexer.STRING: {
                 methodVisitor.visitLdcInsn(var.getValue());
                 methodVisitor.visitVarInsn(ASTORE, var.getId());
             }
