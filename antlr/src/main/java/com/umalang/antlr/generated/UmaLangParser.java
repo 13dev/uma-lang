@@ -18,11 +18,11 @@ public class UmaLangParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__11=1, T__10=2, T__9=3, T__8=4, T__7=5, T__6=6, T__5=7, T__4=8, T__3=9, 
-		T__2=10, T__1=11, T__0=12, EQUALS=13, BOOL=14, ID=15;
+		T__2=10, T__1=11, T__0=12, EQUALS=13, BOOL=14, ID=15, NUMBER=16, STRING=17;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'short'", "'string'", "'double'", "'char'", "'int'", "'boolean'", 
 		"'long'", "'float'", "'void'", "'['", "'byte'", "']'", "'='", "BOOL", 
-		"ID"
+		"ID", "NUMBER", "STRING"
 	};
 	public static final int
 		RULE_variableType = 0, RULE_primitiveType = 1;
@@ -351,7 +351,7 @@ public class UmaLangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\21\\\4\2\t\2\4\3"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\23\\\4\2\t\2\4\3"+
 		"\t\3\3\2\3\2\3\2\7\2\n\n\2\f\2\16\2\r\13\2\3\2\3\2\3\2\7\2\22\n\2\f\2"+
 		"\16\2\25\13\2\3\2\3\2\3\2\7\2\32\n\2\f\2\16\2\35\13\2\3\2\3\2\3\2\7\2"+
 		"\"\n\2\f\2\16\2%\13\2\3\2\3\2\3\2\7\2*\n\2\f\2\16\2-\13\2\3\2\3\2\3\2"+

@@ -17,3 +17,5 @@ primitiveType   : variableType | 'void' ('[' ']')*
 EQUALS : '=' ;
 BOOL : 'true' | 'false' ;
 ID : [a-zA-Z0-9]+ ;
+NUMBER : [0-9]+ ; //must consist only of digits
+STRING : '"'.*'"' ;

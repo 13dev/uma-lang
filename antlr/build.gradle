@@ -68,5 +68,8 @@ generateGrammarSource {
             from "${buildDir}/generated-src/antlr/main"
             into "src/main/java/com/umalang/antlr/generated"
         }
+
+        println "Deleting build dir..."
+        delete "${buildDir}/generated-src/antlr"
     }
 }
