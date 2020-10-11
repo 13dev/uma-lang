@@ -33,3 +33,6 @@ umalang/
 │  ├─ parser/
 ````
 
+### Bytecode doc:
+
+[Field Discriptors]: docs/bytecode1.png
