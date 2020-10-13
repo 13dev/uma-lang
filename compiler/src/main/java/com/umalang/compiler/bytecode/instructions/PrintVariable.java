@@ -6,7 +6,7 @@ import com.umalang.compiler.parser.domain.Variable;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-public class PrintVariable implements Instruction, Opcodes {
+public class PrintVariable implements ClassScopeInstruction, Opcodes {
 
     private final Variable variable;
 

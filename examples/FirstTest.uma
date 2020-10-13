@@ -1,4 +1,6 @@
-int variable = 10342342335;
-print variable;
-string strstr = "dupa";
-print strstr;
+class Test {
+    int variable = 1;
+    print variable;
+    string strstr = "bruno e gay";
+    print strstr;
+}

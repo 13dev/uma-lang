@@ -13,7 +13,13 @@ variableType    : 'boolean' ('[' ']')*
 
 primitiveType   : variableType | 'void' ('[' ']')*
                 ;
-compilationUnit : ( variable | print )* EOF;
+compilationUnit : classUnit EOF ;
+className : ID ;
+parentClassName : '<' className ;
+classUnit : 'class' className parentClassName* '{' block '}' ;
+block : (variable | print)* ;
+
+
 variable : variableType ID EQUALS value SEMICOLON;
 print : PRINT ID SEMICOLON ;
 value : NUMBER

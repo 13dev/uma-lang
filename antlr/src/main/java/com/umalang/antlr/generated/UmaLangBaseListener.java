@@ -17,6 +17,19 @@ public class UmaLangBaseListener implements UmaLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterClassUnit(@NotNull UmaLangParser.ClassUnitContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitClassUnit(@NotNull UmaLangParser.ClassUnitContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterVariableType(@NotNull UmaLangParser.VariableTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -56,6 +69,19 @@ public class UmaLangBaseListener implements UmaLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterParentClassName(@NotNull UmaLangParser.ParentClassNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitParentClassName(@NotNull UmaLangParser.ParentClassNameContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterVariable(@NotNull UmaLangParser.VariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -63,6 +89,32 @@ public class UmaLangBaseListener implements UmaLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitVariable(@NotNull UmaLangParser.VariableContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterClassName(@NotNull UmaLangParser.ClassNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitClassName(@NotNull UmaLangParser.ClassNameContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBlock(@NotNull UmaLangParser.BlockContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBlock(@NotNull UmaLangParser.BlockContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

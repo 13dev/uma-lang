@@ -1,10 +1,12 @@
 package com.umalang.compiler;
 // Created by 13dev - 11/10/2020
 
+import com.umalang.compiler.bytecode.CompilationUnit;
 import com.umalang.compiler.bytecode.Generator;
 import com.umalang.compiler.bytecode.instructions.Instruction;
 import com.umalang.compiler.parser.SyntaxTreeTraverser;
 import com.umalang.compiler.util.ArgumentErrorEnum;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
@@ -32,16 +34,12 @@ public class Compiler {
         final File umaFile = new File(args[0]);
 
         String umaClassName = StringUtils.remove(umaFile.getName(), ".uma");
-
-        final Queue<Instruction> instructionsQueue = new SyntaxTreeTraverser().getInstructions(
+        final CompilationUnit compilationUnit = new SyntaxTreeTraverser().getCompilationUnit(
                 umaFile.getAbsolutePath()
         );
 
-        final byte[] byteCode = new Generator().generateBytecode(instructionsQueue, umaClassName);
-
-        OutputStream os = new FileOutputStream(umaClassName + ".class");
-        os.write(byteCode);
-        os.close();
+        OutputStream os = new FileOutputStream(compilationUnit.getClassName() + ".class");
+        IOUtils.write(compilationUnit.getByteCode(), os);
 
     }
 

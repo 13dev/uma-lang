@@ -6,7 +6,7 @@ import com.umalang.compiler.parser.domain.Variable;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-public class VariableDeclaration implements Instruction, Opcodes {
+public class VariableDeclaration implements ClassScopeInstruction, Opcodes {
 
     private final Variable var;
 
@@ -18,8 +18,8 @@ public class VariableDeclaration implements Instruction, Opcodes {
     public void apply(MethodVisitor methodVisitor) {
         switch (var.getType()) {
             case UmaLangLexer.NUMBER -> {
-                methodVisitor.visitLdcInsn(Integer.parseInt(var.getValue()));
-                methodVisitor.visitVarInsn(LSTORE, var.getId());
+                methodVisitor.visitIntInsn(BIPUSH, Integer.parseInt(var.getValue()));
+                methodVisitor.visitVarInsn(ISTORE, var.getId());
             }
             case UmaLangLexer.STRING -> {
                 methodVisitor.visitLdcInsn(var.getValue());

@@ -3,9 +3,8 @@ package com.umalang.compiler.parser;
 
 import com.umalang.antlr.generated.UmaLangBaseListener;
 import com.umalang.antlr.generated.UmaLangParser;
-import com.umalang.compiler.bytecode.instructions.Instruction;
-import com.umalang.compiler.bytecode.instructions.PrintVariable;
-import com.umalang.compiler.bytecode.instructions.VariableDeclaration;
+import com.umalang.compiler.bytecode.CompilationUnit;
+import com.umalang.compiler.bytecode.instructions.*;
 import com.umalang.compiler.parser.domain.Variable;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -17,11 +16,13 @@ import java.util.Queue;
 
 public class UmaLangTreeWalkListener extends UmaLangBaseListener {
 
-    private Queue<Instruction> instructionsQueue = new ArrayDeque<>();
+    Queue<ClassScopeInstruction> classScopeInstructions = new ArrayDeque<>();
     Map<String, Variable> variables = new HashMap<>();
+    private CompilationUnit compilationUnit;
+    private ClassDeclaration classDeclaration;
 
-    public Queue<Instruction> getInstructionsQueue() {
-        return instructionsQueue;
+    public Queue<ClassScopeInstruction> getClassScopeInstructions() {
+        return classScopeInstructions;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class UmaLangTreeWalkListener extends UmaLangBaseListener {
         Variable var = new Variable(varIndex, varType, varTextValue);
 
         variables.put(varName.getText(), var);
-        instructionsQueue.add(new VariableDeclaration(var));
+        classScopeInstructions.add(new VariableDeclaration(var));
 
         logVariableDeclarationStatementFound(varName, varValue);
     }
@@ -54,8 +55,21 @@ public class UmaLangTreeWalkListener extends UmaLangBaseListener {
 
         final Variable variable = variables.get(varName.getText());
 
-        instructionsQueue.add(new PrintVariable(variable));
+        classScopeInstructions.add(new PrintVariable(variable));
         logPrintStatementFound(varName, variable);
+    }
+
+    @Override
+    public void exitCompilationUnit(UmaLangParser.CompilationUnitContext ctx) {
+        super.exitCompilationUnit(ctx);
+        compilationUnit = new CompilationUnit(classDeclaration);
+    }
+
+    @Override
+    public void exitClassUnit(UmaLangParser.ClassUnitContext ctx) {
+        super.exitClassUnit(ctx);
+        final String className = ctx.className().getText();
+        classDeclaration = new ClassDeclaration(classScopeInstructions, className);
     }
 
     private void logPrintStatementFound(TerminalNode varName, Variable variable) {
@@ -74,5 +88,9 @@ public class UmaLangTreeWalkListener extends UmaLangBaseListener {
                 varValue.getText(),
                 varName.getSymbol().getLine()
         );
+    }
+
+    public CompilationUnit getCompilationUnit() {
+        return compilationUnit;
     }
 }

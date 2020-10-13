@@ -3,6 +3,7 @@ package com.umalang.compiler.parser;
 
 import com.umalang.antlr.generated.UmaLangLexer;
 import com.umalang.antlr.generated.UmaLangParser;
+import com.umalang.compiler.bytecode.CompilationUnit;
 import com.umalang.compiler.bytecode.instructions.Instruction;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CharStream;
@@ -13,7 +14,7 @@ import java.util.Queue;
 
 public class SyntaxTreeTraverser {
 
-    public Queue<Instruction> getInstructions(String filePath) throws IOException {
+    public CompilationUnit getCompilationUnit(String filePath) throws IOException {
         // file that contain the .uma code
         CharStream charStream = new ANTLRFileStream(filePath);
         UmaLangLexer lexer = new UmaLangLexer(charStream);
@@ -27,7 +28,7 @@ public class SyntaxTreeTraverser {
         parser.addParseListener(listener);
         parser.compilationUnit();
 
-        return listener.getInstructionsQueue();
+        return listener.getCompilationUnit();
 
     }
 }
