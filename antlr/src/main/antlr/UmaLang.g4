@@ -9,17 +9,61 @@ variableType    : 'boolean' ('[' ']')*
                 | 'long' ('[' ']')*
                 | 'float' ('[' ']')*
                 | 'double' ('[' ']')*
-                ;
+                | classType;
 
 primitiveType   : variableType | 'void' ('[' ']')*
                 ;
-compilationUnit : ( variable | print )* EOF;
-variable : variableType ID EQUALS value SEMICOLON;
-print : PRINT ID SEMICOLON ;
+
+
+
+// Class Functions
+function : functionDeclaration '{' (blockStatement)* '}' ;
+functionName : ID ;
+functionDeclaration : (type)? functionName '(' (functionArgument)* (',' functionArgument)* ')' ;
+functionDefaultParamValue : '=' expression ;
+functionArgument : type ID functionDefaultParamValue? ;
+type    : primitiveType
+        | classType
+        ;
+
+
+functionCall : functionName '(' expressionList ')' SEMICOLON;
+functionCallNoSemi : functionName '(' expressionList ')';
+
+// Classes
+classType : CLASS_NAME ('[' ']')* ;
+className : ID ;
+parentClassName : '<' className ;
+classDeclaration : 'class' className parentClassName* '{' classBody '}' ;
+classBody : function* ;
+
+
+expressionList  : (expression)* (',' expression)*
+                ;
+
+blockStatement  : variable
+                | print
+                | functionCall
+                ;
+
+compilationUnit : classDeclaration EOF ;
+block : (variable | print)* ;
+
+
+expression  : variableReference
+            | value
+            | functionCallNoSemi
+            ;
+
+variableReference : ID ;
+variable : variableType ID EQUALS expression SEMICOLON ;
+print : PRINT expression SEMICOLON ;
 value : NUMBER
-      | STRING ;
+      | STRING
+      ;
 
 //lexer rules (tokens)
+CLASS_NAME : ID ('.' ID)+ ;
 SEMICOLON : ';' ;
 PRINT : 'print' ;
 EQUALS : '=' ; //must be '='

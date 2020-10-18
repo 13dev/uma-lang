@@ -1,4 +1,18 @@
-int variable = 10342342335;
-print variable;
-string strstr = "dupa";
-print strstr;
+class Test {
+    void main(string[] args) {
+        string x = "Olá! isto é um teste!";
+        int y = 1;
+        foo(x, y);
+        bar();
+    }
+
+    void foo(string param1, int param2) {
+        print param1;
+        print param2;
+    }
+
+    void bar() {
+        string testBar = 2;
+        print testBar;
+    }
+}
