@@ -43,7 +43,6 @@ public class Scope {
         localVariables.add(localVariable);
     }
 
-
     public LocalVariable getLocalVariable(String varName) {
 
         return localVariables.stream()

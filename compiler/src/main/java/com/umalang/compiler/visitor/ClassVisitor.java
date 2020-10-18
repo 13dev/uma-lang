@@ -33,8 +33,4 @@ public class ClassVisitor extends UmaLangBaseVisitor<ClassDeclaration> {
         return new ClassDeclaration(name, methods);
     }
 
-    //    @Override
-//    public ClassDeclaration visitClassDeclaration(UmaLangParser.ClassUnitContext ctx) {
-//
-//    }
 }

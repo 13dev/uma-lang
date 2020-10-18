@@ -30,10 +30,8 @@ public class ExpressionVisitor extends UmaLangBaseVisitor<Expression> {
 
     @Override
     public Expression visitValue(UmaLangParser.ValueContext ctx) {
-        return new Value(
-                ResolverType.getFromValue(ctx.getText()),
-                ctx.getText()
-        );
+        String value = ctx.getText();
+        return new Value(ResolverType.getFromValue(value), value);
     }
 
 
@@ -45,9 +43,7 @@ public class ExpressionVisitor extends UmaLangBaseVisitor<Expression> {
         List<FunctionParameter> signatureParameters = signature.getArguments();
         List<UmaLangParser.ExpressionContext> calledParameters = ctx.expressionList().expression();
         List<Expression> arguments = calledParameters.stream()
-                .map(expressionContext -> {
-                    return expressionContext.accept(new ExpressionVisitor(scope));
-                })
+                .map(expressionContext -> expressionContext.accept(new ExpressionVisitor(scope)))
                 .collect(Collectors.toList());
         Type returnType = signature.getReturnType();
 

@@ -24,11 +24,13 @@ public class MethodGenerator {
         String name = function.getName();
         String description = DecriptorFactory.getMethodDescriptor(function);
         Collection<Statement> instructions = function.getStatements();
-        int access = Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC;//(function.getName().equals("main") ? Opcodes.ACC_STATIC : 0);
+        int access = Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC; //(function.getName().equals("main") ? Opcodes.ACC_STATIC : 0);
         MethodVisitor mv = classWriter.visitMethod(access, name, description, null, null);
         mv.visitCode();
         StatementGenerator statementGenerator = new StatementGenerator(mv);
+
         instructions.forEach(instruction -> statementGenerator.generate(instruction, scope));
+
         mv.visitInsn(Opcodes.RETURN);
         mv.visitMaxs(-1, -1);
         mv.visitEnd();

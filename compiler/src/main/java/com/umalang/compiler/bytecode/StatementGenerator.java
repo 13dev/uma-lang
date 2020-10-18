@@ -25,6 +25,7 @@ public class StatementGenerator {
     }
 
     public void generate(Statement expression, Scope scope) {
+
         if (expression instanceof PrintStatement) {
             PrintStatement printStatement = (PrintStatement) expression;
             generate(printStatement, scope);
