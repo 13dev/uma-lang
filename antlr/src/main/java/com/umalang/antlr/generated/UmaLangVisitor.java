@@ -54,11 +54,18 @@ public interface UmaLangVisitor<T> extends ParseTreeVisitor<T> {
 	T visitClassName(@NotNull UmaLangParser.ClassNameContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link UmaLangParser#classUnit}.
+	 * Visit a parse tree produced by {@link UmaLangParser#type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassUnit(@NotNull UmaLangParser.ClassUnitContext ctx);
+	T visitType(@NotNull UmaLangParser.TypeContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link UmaLangParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitClassDeclaration(@NotNull UmaLangParser.ClassDeclarationContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link UmaLangParser#variableType}.
@@ -87,6 +94,13 @@ public interface UmaLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPrint(@NotNull UmaLangParser.PrintContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link UmaLangParser#functionCallNoSemi}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCallNoSemi(@NotNull UmaLangParser.FunctionCallNoSemiContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link UmaLangParser#compilationUnit}.
@@ -136,13 +150,6 @@ public interface UmaLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBlock(@NotNull UmaLangParser.BlockContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link UmaLangParser#functionType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunctionType(@NotNull UmaLangParser.FunctionTypeContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link UmaLangParser#primitiveType}.

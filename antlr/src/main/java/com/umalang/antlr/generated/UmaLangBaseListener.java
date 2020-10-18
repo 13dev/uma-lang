@@ -95,13 +95,26 @@ public class UmaLangBaseListener implements UmaLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassUnit(@NotNull UmaLangParser.ClassUnitContext ctx) { }
+	@Override public void enterType(@NotNull UmaLangParser.TypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassUnit(@NotNull UmaLangParser.ClassUnitContext ctx) { }
+	@Override public void exitType(@NotNull UmaLangParser.TypeContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterClassDeclaration(@NotNull UmaLangParser.ClassDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitClassDeclaration(@NotNull UmaLangParser.ClassDeclarationContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -154,6 +167,19 @@ public class UmaLangBaseListener implements UmaLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPrint(@NotNull UmaLangParser.PrintContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionCallNoSemi(@NotNull UmaLangParser.FunctionCallNoSemiContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionCallNoSemi(@NotNull UmaLangParser.FunctionCallNoSemiContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -245,19 +271,6 @@ public class UmaLangBaseListener implements UmaLangListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitBlock(@NotNull UmaLangParser.BlockContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFunctionType(@NotNull UmaLangParser.FunctionTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunctionType(@NotNull UmaLangParser.FunctionTypeContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

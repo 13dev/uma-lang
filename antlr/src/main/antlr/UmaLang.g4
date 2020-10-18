@@ -14,24 +14,28 @@ variableType    : 'boolean' ('[' ']')*
 primitiveType   : variableType | 'void' ('[' ']')*
                 ;
 
-classBody : function* ;
+
 
 // Class Functions
 function : functionDeclaration '{' (blockStatement)* '}' ;
 functionName : ID ;
-functionDeclaration    :
-                    functionType functionName '(' (functionArgument)* (',' functionArgument)* ')'
-                    ;
+functionDeclaration : (type)? functionName '(' (functionArgument)* (',' functionArgument)* ')' ;
 functionDefaultParamValue : '=' expression ;
-functionArgument : variableType ID functionDefaultParamValue? ;
-functionType : primitiveType | classType;
-functionCall : functionName '(' expressionList ')';
+functionArgument : type ID functionDefaultParamValue? ;
+type    : primitiveType
+        | classType
+        ;
+
+
+functionCall : functionName '(' expressionList ')' SEMICOLON;
+functionCallNoSemi : functionName '(' expressionList ')';
 
 // Classes
 classType : CLASS_NAME ('[' ']')* ;
 className : ID ;
 parentClassName : '<' className ;
-classUnit : 'class' className parentClassName* '{' block '}' ;
+classDeclaration : 'class' className parentClassName* '{' classBody '}' ;
+classBody : function* ;
 
 
 expressionList  : (expression)* (',' expression)*
@@ -42,18 +46,18 @@ blockStatement  : variable
                 | functionCall
                 ;
 
-compilationUnit : classUnit EOF ;
+compilationUnit : classDeclaration EOF ;
 block : (variable | print)* ;
 
 
 expression  : variableReference
             | value
-            | functionCall
+            | functionCallNoSemi
             ;
 
 variableReference : ID ;
-variable : variableType ID EQUALS value SEMICOLON ;
-print : PRINT ID SEMICOLON ;
+variable : variableType ID EQUALS expression SEMICOLON ;
+print : PRINT expression SEMICOLON ;
 value : NUMBER
       | STRING
       ;

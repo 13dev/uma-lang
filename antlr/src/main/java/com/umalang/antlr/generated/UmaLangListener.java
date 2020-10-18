@@ -75,15 +75,26 @@ public interface UmaLangListener extends ParseTreeListener {
 	void exitClassName(@NotNull UmaLangParser.ClassNameContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link UmaLangParser#classUnit}.
+	 * Enter a parse tree produced by {@link UmaLangParser#type}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassUnit(@NotNull UmaLangParser.ClassUnitContext ctx);
+	void enterType(@NotNull UmaLangParser.TypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link UmaLangParser#classUnit}.
+	 * Exit a parse tree produced by {@link UmaLangParser#type}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassUnit(@NotNull UmaLangParser.ClassUnitContext ctx);
+	void exitType(@NotNull UmaLangParser.TypeContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link UmaLangParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassDeclaration(@NotNull UmaLangParser.ClassDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link UmaLangParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassDeclaration(@NotNull UmaLangParser.ClassDeclarationContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link UmaLangParser#variableType}.
@@ -128,6 +139,17 @@ public interface UmaLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPrint(@NotNull UmaLangParser.PrintContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link UmaLangParser#functionCallNoSemi}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCallNoSemi(@NotNull UmaLangParser.FunctionCallNoSemiContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link UmaLangParser#functionCallNoSemi}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCallNoSemi(@NotNull UmaLangParser.FunctionCallNoSemiContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link UmaLangParser#compilationUnit}.
@@ -205,17 +227,6 @@ public interface UmaLangListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBlock(@NotNull UmaLangParser.BlockContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link UmaLangParser#functionType}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunctionType(@NotNull UmaLangParser.FunctionTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link UmaLangParser#functionType}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunctionType(@NotNull UmaLangParser.FunctionTypeContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link UmaLangParser#primitiveType}.

@@ -1,10 +1,7 @@
 package com.umalang.compiler;
 // Created by 13dev - 11/10/2020
 
-import com.umalang.compiler.bytecode.CompilationUnit;
-import com.umalang.compiler.bytecode.Generator;
-import com.umalang.compiler.bytecode.instructions.Instruction;
-import com.umalang.compiler.parser.SyntaxTreeTraverser;
+import com.umalang.compiler.bytecode.BytecodeGenerator;
 import com.umalang.compiler.util.ArgumentErrorEnum;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -13,7 +10,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Queue;
 
 public class Compiler {
 
@@ -23,6 +19,8 @@ public class Compiler {
 
     public void compile(String[] args) throws IOException {
         final ArgumentErrorEnum argsErrors = getArgumentValidationErrors(args);
+        BytecodeGenerator bytecodeGenerator = new BytecodeGenerator();
+
 
         // get argument errors
         if (argsErrors != ArgumentErrorEnum.NONE) {
@@ -34,12 +32,16 @@ public class Compiler {
         final File umaFile = new File(args[0]);
 
         String umaClassName = StringUtils.remove(umaFile.getName(), ".uma");
-        final CompilationUnit compilationUnit = new SyntaxTreeTraverser().getCompilationUnit(
+
+        final CompilationUnit compilationUnit = new Parser().getCompilationUnit(
                 umaFile.getAbsolutePath()
         );
 
         OutputStream os = new FileOutputStream(compilationUnit.getClassName() + ".class");
-        IOUtils.write(compilationUnit.getByteCode(), os);
+
+        final byte[] byteCode = bytecodeGenerator.generate(compilationUnit);
+
+        IOUtils.write(byteCode, os);
 
     }
 

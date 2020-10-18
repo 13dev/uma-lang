@@ -28,18 +28,18 @@ public class UmaLangParser extends Parser {
 		"'='", "NUMBER", "STRING", "ID", "WS"
 	};
 	public static final int
-		RULE_variableType = 0, RULE_primitiveType = 1, RULE_classBody = 2, RULE_function = 3, 
-		RULE_functionName = 4, RULE_functionDeclaration = 5, RULE_functionDefaultParamValue = 6, 
-		RULE_functionArgument = 7, RULE_functionType = 8, RULE_functionCall = 9, 
-		RULE_classType = 10, RULE_className = 11, RULE_parentClassName = 12, RULE_classUnit = 13, 
-		RULE_expressionList = 14, RULE_blockStatement = 15, RULE_compilationUnit = 16, 
-		RULE_block = 17, RULE_expression = 18, RULE_variableReference = 19, RULE_variable = 20, 
-		RULE_print = 21, RULE_value = 22;
+		RULE_variableType = 0, RULE_primitiveType = 1, RULE_function = 2, RULE_functionName = 3, 
+		RULE_functionDeclaration = 4, RULE_functionDefaultParamValue = 5, RULE_functionArgument = 6, 
+		RULE_type = 7, RULE_functionCall = 8, RULE_functionCallNoSemi = 9, RULE_classType = 10, 
+		RULE_className = 11, RULE_parentClassName = 12, RULE_classDeclaration = 13, 
+		RULE_classBody = 14, RULE_expressionList = 15, RULE_blockStatement = 16, 
+		RULE_compilationUnit = 17, RULE_block = 18, RULE_expression = 19, RULE_variableReference = 20, 
+		RULE_variable = 21, RULE_print = 22, RULE_value = 23;
 	public static final String[] ruleNames = {
-		"variableType", "primitiveType", "classBody", "function", "functionName", 
-		"functionDeclaration", "functionDefaultParamValue", "functionArgument", 
-		"functionType", "functionCall", "classType", "className", "parentClassName", 
-		"classUnit", "expressionList", "blockStatement", "compilationUnit", "block", 
+		"variableType", "primitiveType", "function", "functionName", "functionDeclaration", 
+		"functionDefaultParamValue", "functionArgument", "type", "functionCall", 
+		"functionCallNoSemi", "classType", "className", "parentClassName", "classDeclaration", 
+		"classBody", "expressionList", "blockStatement", "compilationUnit", "block", 
 		"expression", "variableReference", "variable", "print", "value"
 	};
 
@@ -90,23 +90,23 @@ public class UmaLangParser extends Parser {
 		enterRule(_localctx, 0, RULE_variableType);
 		int _la;
 		try {
-			setState(119);
+			setState(121);
 			switch (_input.LA(1)) {
 			case T__17:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(46); match(T__17);
-				setState(51);
+				setState(48); match(T__17);
+				setState(53);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(47); match(T__11);
-					setState(48); match(T__7);
+					setState(49); match(T__11);
+					setState(50); match(T__7);
 					}
 					}
-					setState(53);
+					setState(55);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -115,18 +115,18 @@ public class UmaLangParser extends Parser {
 			case T__5:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(54); match(T__5);
-				setState(59);
+				setState(56); match(T__5);
+				setState(61);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(55); match(T__11);
-					setState(56); match(T__7);
+					setState(57); match(T__11);
+					setState(58); match(T__7);
 					}
 					}
-					setState(61);
+					setState(63);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -135,18 +135,18 @@ public class UmaLangParser extends Parser {
 			case T__18:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(62); match(T__18);
-				setState(67);
+				setState(64); match(T__18);
+				setState(69);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(63); match(T__11);
-					setState(64); match(T__7);
+					setState(65); match(T__11);
+					setState(66); match(T__7);
 					}
 					}
-					setState(69);
+					setState(71);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -155,18 +155,18 @@ public class UmaLangParser extends Parser {
 			case T__9:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(70); match(T__9);
-				setState(75);
+				setState(72); match(T__9);
+				setState(77);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(71); match(T__11);
-					setState(72); match(T__7);
+					setState(73); match(T__11);
+					setState(74); match(T__7);
 					}
 					}
-					setState(77);
+					setState(79);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -175,18 +175,18 @@ public class UmaLangParser extends Parser {
 			case T__6:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(78); match(T__6);
-				setState(83);
+				setState(80); match(T__6);
+				setState(85);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(79); match(T__11);
-					setState(80); match(T__7);
+					setState(81); match(T__11);
+					setState(82); match(T__7);
 					}
 					}
-					setState(85);
+					setState(87);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -195,18 +195,18 @@ public class UmaLangParser extends Parser {
 			case T__3:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(86); match(T__3);
-				setState(91);
+				setState(88); match(T__3);
+				setState(93);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(87); match(T__11);
-					setState(88); match(T__7);
+					setState(89); match(T__11);
+					setState(90); match(T__7);
 					}
 					}
-					setState(93);
+					setState(95);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -215,18 +215,18 @@ public class UmaLangParser extends Parser {
 			case T__16:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(94); match(T__16);
-				setState(99);
+				setState(96); match(T__16);
+				setState(101);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(95); match(T__11);
-					setState(96); match(T__7);
+					setState(97); match(T__11);
+					setState(98); match(T__7);
 					}
 					}
-					setState(101);
+					setState(103);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -235,18 +235,18 @@ public class UmaLangParser extends Parser {
 			case T__15:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(102); match(T__15);
-				setState(107);
+				setState(104); match(T__15);
+				setState(109);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(103); match(T__11);
-					setState(104); match(T__7);
+					setState(105); match(T__11);
+					setState(106); match(T__7);
 					}
 					}
-					setState(109);
+					setState(111);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -255,18 +255,18 @@ public class UmaLangParser extends Parser {
 			case T__4:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(110); match(T__4);
-				setState(115);
+				setState(112); match(T__4);
+				setState(117);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(111); match(T__11);
-					setState(112); match(T__7);
+					setState(113); match(T__11);
+					setState(114); match(T__7);
 					}
 					}
-					setState(117);
+					setState(119);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -275,7 +275,7 @@ public class UmaLangParser extends Parser {
 			case CLASS_NAME:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(118); classType();
+				setState(120); classType();
 				}
 				break;
 			default:
@@ -321,7 +321,7 @@ public class UmaLangParser extends Parser {
 		enterRule(_localctx, 2, RULE_primitiveType);
 		int _la;
 		try {
-			setState(130);
+			setState(132);
 			switch (_input.LA(1)) {
 			case T__18:
 			case T__17:
@@ -335,24 +335,24 @@ public class UmaLangParser extends Parser {
 			case CLASS_NAME:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(121); variableType();
+				setState(123); variableType();
 				}
 				break;
 			case T__12:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(122); match(T__12);
-				setState(127);
+				setState(124); match(T__12);
+				setState(129);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==T__11) {
 					{
 					{
-					setState(123); match(T__11);
-					setState(124); match(T__7);
+					setState(125); match(T__11);
+					setState(126); match(T__7);
 					}
 					}
-					setState(129);
+					setState(131);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
@@ -360,65 +360,6 @@ public class UmaLangParser extends Parser {
 				break;
 			default:
 				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ClassBodyContext extends ParserRuleContext {
-		public FunctionContext function(int i) {
-			return getRuleContext(FunctionContext.class,i);
-		}
-		public List<FunctionContext> function() {
-			return getRuleContexts(FunctionContext.class);
-		}
-		public ClassBodyContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_classBody; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).enterClassBody(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).exitClassBody(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof UmaLangVisitor ) return ((UmaLangVisitor<? extends T>)visitor).visitClassBody(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ClassBodyContext classBody() throws RecognitionException {
-		ClassBodyContext _localctx = new ClassBodyContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_classBody);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(135);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__18) | (1L << T__17) | (1L << T__16) | (1L << T__15) | (1L << T__12) | (1L << T__9) | (1L << T__6) | (1L << T__5) | (1L << T__4) | (1L << T__3) | (1L << CLASS_NAME))) != 0)) {
-				{
-				{
-				setState(132); function();
-				}
-				}
-				setState(137);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -463,27 +404,27 @@ public class UmaLangParser extends Parser {
 
 	public final FunctionContext function() throws RecognitionException {
 		FunctionContext _localctx = new FunctionContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_function);
+		enterRule(_localctx, 4, RULE_function);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(138); functionDeclaration();
-			setState(139); match(T__13);
-			setState(143);
+			setState(134); functionDeclaration();
+			setState(135); match(T__13);
+			setState(139);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__18) | (1L << T__17) | (1L << T__16) | (1L << T__15) | (1L << T__9) | (1L << T__6) | (1L << T__5) | (1L << T__4) | (1L << T__3) | (1L << CLASS_NAME) | (1L << PRINT) | (1L << ID))) != 0)) {
 				{
 				{
-				setState(140); blockStatement();
+				setState(136); blockStatement();
 				}
 				}
-				setState(145);
+				setState(141);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(146); match(T__8);
+			setState(142); match(T__8);
 			}
 		}
 		catch (RecognitionException re) {
@@ -520,11 +461,11 @@ public class UmaLangParser extends Parser {
 
 	public final FunctionNameContext functionName() throws RecognitionException {
 		FunctionNameContext _localctx = new FunctionNameContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_functionName);
+		enterRule(_localctx, 6, RULE_functionName);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(148); match(ID);
+			setState(144); match(ID);
 			}
 		}
 		catch (RecognitionException re) {
@@ -542,8 +483,8 @@ public class UmaLangParser extends Parser {
 		public FunctionNameContext functionName() {
 			return getRuleContext(FunctionNameContext.class,0);
 		}
-		public FunctionTypeContext functionType() {
-			return getRuleContext(FunctionTypeContext.class,0);
+		public TypeContext type() {
+			return getRuleContext(TypeContext.class,0);
 		}
 		public List<FunctionArgumentContext> functionArgument() {
 			return getRuleContexts(FunctionArgumentContext.class);
@@ -572,42 +513,49 @@ public class UmaLangParser extends Parser {
 
 	public final FunctionDeclarationContext functionDeclaration() throws RecognitionException {
 		FunctionDeclarationContext _localctx = new FunctionDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_functionDeclaration);
+		enterRule(_localctx, 8, RULE_functionDeclaration);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(150); functionType();
-			setState(151); functionName();
-			setState(152); match(T__2);
-			setState(156);
+			setState(147);
+			_la = _input.LA(1);
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__18) | (1L << T__17) | (1L << T__16) | (1L << T__15) | (1L << T__12) | (1L << T__9) | (1L << T__6) | (1L << T__5) | (1L << T__4) | (1L << T__3) | (1L << CLASS_NAME))) != 0)) {
+				{
+				setState(146); type();
+				}
+			}
+
+			setState(149); functionName();
+			setState(150); match(T__2);
+			setState(154);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__18) | (1L << T__17) | (1L << T__16) | (1L << T__15) | (1L << T__9) | (1L << T__6) | (1L << T__5) | (1L << T__4) | (1L << T__3) | (1L << CLASS_NAME))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__18) | (1L << T__17) | (1L << T__16) | (1L << T__15) | (1L << T__12) | (1L << T__9) | (1L << T__6) | (1L << T__5) | (1L << T__4) | (1L << T__3) | (1L << CLASS_NAME))) != 0)) {
 				{
 				{
-				setState(153); functionArgument();
+				setState(151); functionArgument();
 				}
 				}
-				setState(158);
+				setState(156);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(163);
+			setState(161);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__0) {
 				{
 				{
-				setState(159); match(T__0);
-				setState(160); functionArgument();
+				setState(157); match(T__0);
+				setState(158); functionArgument();
 				}
 				}
-				setState(165);
+				setState(163);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(166); match(T__1);
+			setState(164); match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -646,12 +594,12 @@ public class UmaLangParser extends Parser {
 
 	public final FunctionDefaultParamValueContext functionDefaultParamValue() throws RecognitionException {
 		FunctionDefaultParamValueContext _localctx = new FunctionDefaultParamValueContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_functionDefaultParamValue);
+		enterRule(_localctx, 10, RULE_functionDefaultParamValue);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(168); match(EQUALS);
-			setState(169); expression();
+			setState(166); match(EQUALS);
+			setState(167); expression();
 			}
 		}
 		catch (RecognitionException re) {
@@ -667,8 +615,8 @@ public class UmaLangParser extends Parser {
 
 	public static class FunctionArgumentContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(UmaLangParser.ID, 0); }
-		public VariableTypeContext variableType() {
-			return getRuleContext(VariableTypeContext.class,0);
+		public TypeContext type() {
+			return getRuleContext(TypeContext.class,0);
 		}
 		public FunctionDefaultParamValueContext functionDefaultParamValue() {
 			return getRuleContext(FunctionDefaultParamValueContext.class,0);
@@ -694,18 +642,18 @@ public class UmaLangParser extends Parser {
 
 	public final FunctionArgumentContext functionArgument() throws RecognitionException {
 		FunctionArgumentContext _localctx = new FunctionArgumentContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_functionArgument);
+		enterRule(_localctx, 12, RULE_functionArgument);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(171); variableType();
-			setState(172); match(ID);
-			setState(174);
+			setState(169); type();
+			setState(170); match(ID);
+			setState(172);
 			_la = _input.LA(1);
 			if (_la==EQUALS) {
 				{
-				setState(173); functionDefaultParamValue();
+				setState(171); functionDefaultParamValue();
 				}
 			}
 
@@ -722,49 +670,49 @@ public class UmaLangParser extends Parser {
 		return _localctx;
 	}
 
-	public static class FunctionTypeContext extends ParserRuleContext {
+	public static class TypeContext extends ParserRuleContext {
 		public PrimitiveTypeContext primitiveType() {
 			return getRuleContext(PrimitiveTypeContext.class,0);
 		}
 		public ClassTypeContext classType() {
 			return getRuleContext(ClassTypeContext.class,0);
 		}
-		public FunctionTypeContext(ParserRuleContext parent, int invokingState) {
+		public TypeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_functionType; }
+		@Override public int getRuleIndex() { return RULE_type; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).enterFunctionType(this);
+			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).enterType(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).exitFunctionType(this);
+			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).exitType(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof UmaLangVisitor ) return ((UmaLangVisitor<? extends T>)visitor).visitFunctionType(this);
+			if ( visitor instanceof UmaLangVisitor ) return ((UmaLangVisitor<? extends T>)visitor).visitType(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final FunctionTypeContext functionType() throws RecognitionException {
-		FunctionTypeContext _localctx = new FunctionTypeContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_functionType);
+	public final TypeContext type() throws RecognitionException {
+		TypeContext _localctx = new TypeContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_type);
 		try {
-			setState(178);
+			setState(176);
 			switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(176); primitiveType();
+				setState(174); primitiveType();
 				}
 				break;
 
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(177); classType();
+				setState(175); classType();
 				}
 				break;
 			}
@@ -784,6 +732,7 @@ public class UmaLangParser extends Parser {
 		public FunctionNameContext functionName() {
 			return getRuleContext(FunctionNameContext.class,0);
 		}
+		public TerminalNode SEMICOLON() { return getToken(UmaLangParser.SEMICOLON, 0); }
 		public ExpressionListContext expressionList() {
 			return getRuleContext(ExpressionListContext.class,0);
 		}
@@ -808,14 +757,64 @@ public class UmaLangParser extends Parser {
 
 	public final FunctionCallContext functionCall() throws RecognitionException {
 		FunctionCallContext _localctx = new FunctionCallContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_functionCall);
+		enterRule(_localctx, 16, RULE_functionCall);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(180); functionName();
-			setState(181); match(T__2);
-			setState(182); expressionList();
-			setState(183); match(T__1);
+			setState(178); functionName();
+			setState(179); match(T__2);
+			setState(180); expressionList();
+			setState(181); match(T__1);
+			setState(182); match(SEMICOLON);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class FunctionCallNoSemiContext extends ParserRuleContext {
+		public FunctionNameContext functionName() {
+			return getRuleContext(FunctionNameContext.class,0);
+		}
+		public ExpressionListContext expressionList() {
+			return getRuleContext(ExpressionListContext.class,0);
+		}
+		public FunctionCallNoSemiContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_functionCallNoSemi; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).enterFunctionCallNoSemi(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).exitFunctionCallNoSemi(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof UmaLangVisitor ) return ((UmaLangVisitor<? extends T>)visitor).visitFunctionCallNoSemi(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final FunctionCallNoSemiContext functionCallNoSemi() throws RecognitionException {
+		FunctionCallNoSemiContext _localctx = new FunctionCallNoSemiContext(_ctx, getState());
+		enterRule(_localctx, 18, RULE_functionCallNoSemi);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(184); functionName();
+			setState(185); match(T__2);
+			setState(186); expressionList();
+			setState(187); match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -857,18 +856,18 @@ public class UmaLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(185); match(CLASS_NAME);
-			setState(190);
+			setState(189); match(CLASS_NAME);
+			setState(194);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__11) {
 				{
 				{
-				setState(186); match(T__11);
-				setState(187); match(T__7);
+				setState(190); match(T__11);
+				setState(191); match(T__7);
 				}
 				}
-				setState(192);
+				setState(196);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -912,7 +911,7 @@ public class UmaLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(193); match(ID);
+			setState(197); match(ID);
 			}
 		}
 		catch (RecognitionException re) {
@@ -955,8 +954,8 @@ public class UmaLangParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(195); match(T__10);
-			setState(196); className();
+			setState(199); match(T__10);
+			setState(200); className();
 			}
 		}
 		catch (RecognitionException re) {
@@ -970,12 +969,12 @@ public class UmaLangParser extends Parser {
 		return _localctx;
 	}
 
-	public static class ClassUnitContext extends ParserRuleContext {
+	public static class ClassDeclarationContext extends ParserRuleContext {
 		public List<ParentClassNameContext> parentClassName() {
 			return getRuleContexts(ParentClassNameContext.class);
 		}
-		public BlockContext block() {
-			return getRuleContext(BlockContext.class,0);
+		public ClassBodyContext classBody() {
+			return getRuleContext(ClassBodyContext.class,0);
 		}
 		public ParentClassNameContext parentClassName(int i) {
 			return getRuleContext(ParentClassNameContext.class,i);
@@ -983,50 +982,109 @@ public class UmaLangParser extends Parser {
 		public ClassNameContext className() {
 			return getRuleContext(ClassNameContext.class,0);
 		}
-		public ClassUnitContext(ParserRuleContext parent, int invokingState) {
+		public ClassDeclarationContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_classUnit; }
+		@Override public int getRuleIndex() { return RULE_classDeclaration; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).enterClassUnit(this);
+			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).enterClassDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).exitClassUnit(this);
+			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).exitClassDeclaration(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof UmaLangVisitor ) return ((UmaLangVisitor<? extends T>)visitor).visitClassUnit(this);
+			if ( visitor instanceof UmaLangVisitor ) return ((UmaLangVisitor<? extends T>)visitor).visitClassDeclaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final ClassUnitContext classUnit() throws RecognitionException {
-		ClassUnitContext _localctx = new ClassUnitContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_classUnit);
+	public final ClassDeclarationContext classDeclaration() throws RecognitionException {
+		ClassDeclarationContext _localctx = new ClassDeclarationContext(_ctx, getState());
+		enterRule(_localctx, 26, RULE_classDeclaration);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(198); match(T__14);
-			setState(199); className();
-			setState(203);
+			setState(202); match(T__14);
+			setState(203); className();
+			setState(207);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__10) {
 				{
 				{
-				setState(200); parentClassName();
+				setState(204); parentClassName();
 				}
 				}
-				setState(205);
+				setState(209);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(206); match(T__13);
-			setState(207); block();
-			setState(208); match(T__8);
+			setState(210); match(T__13);
+			setState(211); classBody();
+			setState(212); match(T__8);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class ClassBodyContext extends ParserRuleContext {
+		public FunctionContext function(int i) {
+			return getRuleContext(FunctionContext.class,i);
+		}
+		public List<FunctionContext> function() {
+			return getRuleContexts(FunctionContext.class);
+		}
+		public ClassBodyContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_classBody; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).enterClassBody(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof UmaLangListener ) ((UmaLangListener)listener).exitClassBody(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof UmaLangVisitor ) return ((UmaLangVisitor<? extends T>)visitor).visitClassBody(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ClassBodyContext classBody() throws RecognitionException {
+		ClassBodyContext _localctx = new ClassBodyContext(_ctx, getState());
+		enterRule(_localctx, 28, RULE_classBody);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(217);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__18) | (1L << T__17) | (1L << T__16) | (1L << T__15) | (1L << T__12) | (1L << T__9) | (1L << T__6) | (1L << T__5) | (1L << T__4) | (1L << T__3) | (1L << CLASS_NAME) | (1L << ID))) != 0)) {
+				{
+				{
+				setState(214); function();
+				}
+				}
+				setState(219);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -1068,35 +1126,35 @@ public class UmaLangParser extends Parser {
 
 	public final ExpressionListContext expressionList() throws RecognitionException {
 		ExpressionListContext _localctx = new ExpressionListContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_expressionList);
+		enterRule(_localctx, 30, RULE_expressionList);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(213);
+			setState(223);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << NUMBER) | (1L << STRING) | (1L << ID))) != 0)) {
 				{
 				{
-				setState(210); expression();
+				setState(220); expression();
 				}
 				}
-				setState(215);
+				setState(225);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(220);
+			setState(230);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__0) {
 				{
 				{
-				setState(216); match(T__0);
-				setState(217); expression();
+				setState(226); match(T__0);
+				setState(227); expression();
 				}
 				}
-				setState(222);
+				setState(232);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1144,9 +1202,9 @@ public class UmaLangParser extends Parser {
 
 	public final BlockStatementContext blockStatement() throws RecognitionException {
 		BlockStatementContext _localctx = new BlockStatementContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_blockStatement);
+		enterRule(_localctx, 32, RULE_blockStatement);
 		try {
-			setState(226);
+			setState(236);
 			switch (_input.LA(1)) {
 			case T__18:
 			case T__17:
@@ -1160,19 +1218,19 @@ public class UmaLangParser extends Parser {
 			case CLASS_NAME:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(223); variable();
+				setState(233); variable();
 				}
 				break;
 			case PRINT:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(224); print();
+				setState(234); print();
 				}
 				break;
 			case ID:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(225); functionCall();
+				setState(235); functionCall();
 				}
 				break;
 			default:
@@ -1191,8 +1249,8 @@ public class UmaLangParser extends Parser {
 	}
 
 	public static class CompilationUnitContext extends ParserRuleContext {
-		public ClassUnitContext classUnit() {
-			return getRuleContext(ClassUnitContext.class,0);
+		public ClassDeclarationContext classDeclaration() {
+			return getRuleContext(ClassDeclarationContext.class,0);
 		}
 		public TerminalNode EOF() { return getToken(UmaLangParser.EOF, 0); }
 		public CompilationUnitContext(ParserRuleContext parent, int invokingState) {
@@ -1216,12 +1274,12 @@ public class UmaLangParser extends Parser {
 
 	public final CompilationUnitContext compilationUnit() throws RecognitionException {
 		CompilationUnitContext _localctx = new CompilationUnitContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_compilationUnit);
+		enterRule(_localctx, 34, RULE_compilationUnit);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(228); classUnit();
-			setState(229); match(EOF);
+			setState(238); classDeclaration();
+			setState(239); match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1269,17 +1327,17 @@ public class UmaLangParser extends Parser {
 
 	public final BlockContext block() throws RecognitionException {
 		BlockContext _localctx = new BlockContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_block);
+		enterRule(_localctx, 36, RULE_block);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(235);
+			setState(245);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__18) | (1L << T__17) | (1L << T__16) | (1L << T__15) | (1L << T__9) | (1L << T__6) | (1L << T__5) | (1L << T__4) | (1L << T__3) | (1L << CLASS_NAME) | (1L << PRINT))) != 0)) {
 				{
-				setState(233);
+				setState(243);
 				switch (_input.LA(1)) {
 				case T__18:
 				case T__17:
@@ -1292,19 +1350,19 @@ public class UmaLangParser extends Parser {
 				case T__3:
 				case CLASS_NAME:
 					{
-					setState(231); variable();
+					setState(241); variable();
 					}
 					break;
 				case PRINT:
 					{
-					setState(232); print();
+					setState(242); print();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
 				}
-				setState(237);
+				setState(247);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1322,11 +1380,11 @@ public class UmaLangParser extends Parser {
 	}
 
 	public static class ExpressionContext extends ParserRuleContext {
+		public FunctionCallNoSemiContext functionCallNoSemi() {
+			return getRuleContext(FunctionCallNoSemiContext.class,0);
+		}
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
-		}
-		public FunctionCallContext functionCall() {
-			return getRuleContext(FunctionCallContext.class,0);
 		}
 		public VariableReferenceContext variableReference() {
 			return getRuleContext(VariableReferenceContext.class,0);
@@ -1352,28 +1410,28 @@ public class UmaLangParser extends Parser {
 
 	public final ExpressionContext expression() throws RecognitionException {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_expression);
+		enterRule(_localctx, 38, RULE_expression);
 		try {
-			setState(241);
-			switch ( getInterpreter().adaptivePredict(_input,25,_ctx) ) {
+			setState(251);
+			switch ( getInterpreter().adaptivePredict(_input,26,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(238); variableReference();
+				setState(248); variableReference();
 				}
 				break;
 
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(239); value();
+				setState(249); value();
 				}
 				break;
 
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(240); functionCall();
+				setState(250); functionCallNoSemi();
 				}
 				break;
 			}
@@ -1412,11 +1470,11 @@ public class UmaLangParser extends Parser {
 
 	public final VariableReferenceContext variableReference() throws RecognitionException {
 		VariableReferenceContext _localctx = new VariableReferenceContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_variableReference);
+		enterRule(_localctx, 40, RULE_variableReference);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(243); match(ID);
+			setState(253); match(ID);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1434,11 +1492,11 @@ public class UmaLangParser extends Parser {
 		public TerminalNode ID() { return getToken(UmaLangParser.ID, 0); }
 		public TerminalNode EQUALS() { return getToken(UmaLangParser.EQUALS, 0); }
 		public TerminalNode SEMICOLON() { return getToken(UmaLangParser.SEMICOLON, 0); }
-		public ValueContext value() {
-			return getRuleContext(ValueContext.class,0);
-		}
 		public VariableTypeContext variableType() {
 			return getRuleContext(VariableTypeContext.class,0);
+		}
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
 		}
 		public VariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1461,15 +1519,15 @@ public class UmaLangParser extends Parser {
 
 	public final VariableContext variable() throws RecognitionException {
 		VariableContext _localctx = new VariableContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_variable);
+		enterRule(_localctx, 42, RULE_variable);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(245); variableType();
-			setState(246); match(ID);
-			setState(247); match(EQUALS);
-			setState(248); value();
-			setState(249); match(SEMICOLON);
+			setState(255); variableType();
+			setState(256); match(ID);
+			setState(257); match(EQUALS);
+			setState(258); expression();
+			setState(259); match(SEMICOLON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1484,9 +1542,11 @@ public class UmaLangParser extends Parser {
 	}
 
 	public static class PrintContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(UmaLangParser.ID, 0); }
 		public TerminalNode SEMICOLON() { return getToken(UmaLangParser.SEMICOLON, 0); }
 		public TerminalNode PRINT() { return getToken(UmaLangParser.PRINT, 0); }
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
+		}
 		public PrintContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1508,13 +1568,13 @@ public class UmaLangParser extends Parser {
 
 	public final PrintContext print() throws RecognitionException {
 		PrintContext _localctx = new PrintContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_print);
+		enterRule(_localctx, 44, RULE_print);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(251); match(PRINT);
-			setState(252); match(ID);
-			setState(253); match(SEMICOLON);
+			setState(261); match(PRINT);
+			setState(262); expression();
+			setState(263); match(SEMICOLON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1552,12 +1612,12 @@ public class UmaLangParser extends Parser {
 
 	public final ValueContext value() throws RecognitionException {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_value);
+		enterRule(_localctx, 46, RULE_value);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(255);
+			setState(265);
 			_la = _input.LA(1);
 			if ( !(_la==NUMBER || _la==STRING) ) {
 			_errHandler.recoverInline(this);
@@ -1577,90 +1637,95 @@ public class UmaLangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\35\u0104\4\2\t\2"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\35\u010e\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\3\2\3\2\3"+
-		"\2\7\2\64\n\2\f\2\16\2\67\13\2\3\2\3\2\3\2\7\2<\n\2\f\2\16\2?\13\2\3\2"+
-		"\3\2\3\2\7\2D\n\2\f\2\16\2G\13\2\3\2\3\2\3\2\7\2L\n\2\f\2\16\2O\13\2\3"+
-		"\2\3\2\3\2\7\2T\n\2\f\2\16\2W\13\2\3\2\3\2\3\2\7\2\\\n\2\f\2\16\2_\13"+
-		"\2\3\2\3\2\3\2\7\2d\n\2\f\2\16\2g\13\2\3\2\3\2\3\2\7\2l\n\2\f\2\16\2o"+
-		"\13\2\3\2\3\2\3\2\7\2t\n\2\f\2\16\2w\13\2\3\2\5\2z\n\2\3\3\3\3\3\3\3\3"+
-		"\7\3\u0080\n\3\f\3\16\3\u0083\13\3\5\3\u0085\n\3\3\4\7\4\u0088\n\4\f\4"+
-		"\16\4\u008b\13\4\3\5\3\5\3\5\7\5\u0090\n\5\f\5\16\5\u0093\13\5\3\5\3\5"+
-		"\3\6\3\6\3\7\3\7\3\7\3\7\7\7\u009d\n\7\f\7\16\7\u00a0\13\7\3\7\3\7\7\7"+
-		"\u00a4\n\7\f\7\16\7\u00a7\13\7\3\7\3\7\3\b\3\b\3\b\3\t\3\t\3\t\5\t\u00b1"+
-		"\n\t\3\n\3\n\5\n\u00b5\n\n\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f\7\f\u00bf"+
-		"\n\f\f\f\16\f\u00c2\13\f\3\r\3\r\3\16\3\16\3\16\3\17\3\17\3\17\7\17\u00cc"+
-		"\n\17\f\17\16\17\u00cf\13\17\3\17\3\17\3\17\3\17\3\20\7\20\u00d6\n\20"+
-		"\f\20\16\20\u00d9\13\20\3\20\3\20\7\20\u00dd\n\20\f\20\16\20\u00e0\13"+
-		"\20\3\21\3\21\3\21\5\21\u00e5\n\21\3\22\3\22\3\22\3\23\3\23\7\23\u00ec"+
-		"\n\23\f\23\16\23\u00ef\13\23\3\24\3\24\3\24\5\24\u00f4\n\24\3\25\3\25"+
-		"\3\26\3\26\3\26\3\26\3\26\3\26\3\27\3\27\3\27\3\27\3\30\3\30\3\30\2\2"+
-		"\31\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\2\3\3\2\32\33\u0110"+
-		"\2y\3\2\2\2\4\u0084\3\2\2\2\6\u0089\3\2\2\2\b\u008c\3\2\2\2\n\u0096\3"+
-		"\2\2\2\f\u0098\3\2\2\2\16\u00aa\3\2\2\2\20\u00ad\3\2\2\2\22\u00b4\3\2"+
-		"\2\2\24\u00b6\3\2\2\2\26\u00bb\3\2\2\2\30\u00c3\3\2\2\2\32\u00c5\3\2\2"+
-		"\2\34\u00c8\3\2\2\2\36\u00d7\3\2\2\2 \u00e4\3\2\2\2\"\u00e6\3\2\2\2$\u00ed"+
-		"\3\2\2\2&\u00f3\3\2\2\2(\u00f5\3\2\2\2*\u00f7\3\2\2\2,\u00fd\3\2\2\2."+
-		"\u0101\3\2\2\2\60\65\7\4\2\2\61\62\7\n\2\2\62\64\7\16\2\2\63\61\3\2\2"+
-		"\2\64\67\3\2\2\2\65\63\3\2\2\2\65\66\3\2\2\2\66z\3\2\2\2\67\65\3\2\2\2"+
-		"8=\7\20\2\29:\7\n\2\2:<\7\16\2\2;9\3\2\2\2<?\3\2\2\2=;\3\2\2\2=>\3\2\2"+
-		"\2>z\3\2\2\2?=\3\2\2\2@E\7\3\2\2AB\7\n\2\2BD\7\16\2\2CA\3\2\2\2DG\3\2"+
-		"\2\2EC\3\2\2\2EF\3\2\2\2Fz\3\2\2\2GE\3\2\2\2HM\7\f\2\2IJ\7\n\2\2JL\7\16"+
-		"\2\2KI\3\2\2\2LO\3\2\2\2MK\3\2\2\2MN\3\2\2\2Nz\3\2\2\2OM\3\2\2\2PU\7\17"+
-		"\2\2QR\7\n\2\2RT\7\16\2\2SQ\3\2\2\2TW\3\2\2\2US\3\2\2\2UV\3\2\2\2Vz\3"+
-		"\2\2\2WU\3\2\2\2X]\7\22\2\2YZ\7\n\2\2Z\\\7\16\2\2[Y\3\2\2\2\\_\3\2\2\2"+
-		"][\3\2\2\2]^\3\2\2\2^z\3\2\2\2_]\3\2\2\2`e\7\5\2\2ab\7\n\2\2bd\7\16\2"+
-		"\2ca\3\2\2\2dg\3\2\2\2ec\3\2\2\2ef\3\2\2\2fz\3\2\2\2ge\3\2\2\2hm\7\6\2"+
-		"\2ij\7\n\2\2jl\7\16\2\2ki\3\2\2\2lo\3\2\2\2mk\3\2\2\2mn\3\2\2\2nz\3\2"+
-		"\2\2om\3\2\2\2pu\7\21\2\2qr\7\n\2\2rt\7\16\2\2sq\3\2\2\2tw\3\2\2\2us\3"+
-		"\2\2\2uv\3\2\2\2vz\3\2\2\2wu\3\2\2\2xz\5\26\f\2y\60\3\2\2\2y8\3\2\2\2"+
-		"y@\3\2\2\2yH\3\2\2\2yP\3\2\2\2yX\3\2\2\2y`\3\2\2\2yh\3\2\2\2yp\3\2\2\2"+
-		"yx\3\2\2\2z\3\3\2\2\2{\u0085\5\2\2\2|\u0081\7\t\2\2}~\7\n\2\2~\u0080\7"+
-		"\16\2\2\177}\3\2\2\2\u0080\u0083\3\2\2\2\u0081\177\3\2\2\2\u0081\u0082"+
-		"\3\2\2\2\u0082\u0085\3\2\2\2\u0083\u0081\3\2\2\2\u0084{\3\2\2\2\u0084"+
-		"|\3\2\2\2\u0085\5\3\2\2\2\u0086\u0088\5\b\5\2\u0087\u0086\3\2\2\2\u0088"+
-		"\u008b\3\2\2\2\u0089\u0087\3\2\2\2\u0089\u008a\3\2\2\2\u008a\7\3\2\2\2"+
-		"\u008b\u0089\3\2\2\2\u008c\u008d\5\f\7\2\u008d\u0091\7\b\2\2\u008e\u0090"+
-		"\5 \21\2\u008f\u008e\3\2\2\2\u0090\u0093\3\2\2\2\u0091\u008f\3\2\2\2\u0091"+
-		"\u0092\3\2\2\2\u0092\u0094\3\2\2\2\u0093\u0091\3\2\2\2\u0094\u0095\7\r"+
-		"\2\2\u0095\t\3\2\2\2\u0096\u0097\7\34\2\2\u0097\13\3\2\2\2\u0098\u0099"+
-		"\5\22\n\2\u0099\u009a\5\n\6\2\u009a\u009e\7\23\2\2\u009b\u009d\5\20\t"+
-		"\2\u009c\u009b\3\2\2\2\u009d\u00a0\3\2\2\2\u009e\u009c\3\2\2\2\u009e\u009f"+
-		"\3\2\2\2\u009f\u00a5\3\2\2\2\u00a0\u009e\3\2\2\2\u00a1\u00a2\7\25\2\2"+
-		"\u00a2\u00a4\5\20\t\2\u00a3\u00a1\3\2\2\2\u00a4\u00a7\3\2\2\2\u00a5\u00a3"+
-		"\3\2\2\2\u00a5\u00a6\3\2\2\2\u00a6\u00a8\3\2\2\2\u00a7\u00a5\3\2\2\2\u00a8"+
-		"\u00a9\7\24\2\2\u00a9\r\3\2\2\2\u00aa\u00ab\7\31\2\2\u00ab\u00ac\5&\24"+
-		"\2\u00ac\17\3\2\2\2\u00ad\u00ae\5\2\2\2\u00ae\u00b0\7\34\2\2\u00af\u00b1"+
-		"\5\16\b\2\u00b0\u00af\3\2\2\2\u00b0\u00b1\3\2\2\2\u00b1\21\3\2\2\2\u00b2"+
-		"\u00b5\5\4\3\2\u00b3\u00b5\5\26\f\2\u00b4\u00b2\3\2\2\2\u00b4\u00b3\3"+
-		"\2\2\2\u00b5\23\3\2\2\2\u00b6\u00b7\5\n\6\2\u00b7\u00b8\7\23\2\2\u00b8"+
-		"\u00b9\5\36\20\2\u00b9\u00ba\7\24\2\2\u00ba\25\3\2\2\2\u00bb\u00c0\7\26"+
-		"\2\2\u00bc\u00bd\7\n\2\2\u00bd\u00bf\7\16\2\2\u00be\u00bc\3\2\2\2\u00bf"+
-		"\u00c2\3\2\2\2\u00c0\u00be\3\2\2\2\u00c0\u00c1\3\2\2\2\u00c1\27\3\2\2"+
-		"\2\u00c2\u00c0\3\2\2\2\u00c3\u00c4\7\34\2\2\u00c4\31\3\2\2\2\u00c5\u00c6"+
-		"\7\13\2\2\u00c6\u00c7\5\30\r\2\u00c7\33\3\2\2\2\u00c8\u00c9\7\7\2\2\u00c9"+
-		"\u00cd\5\30\r\2\u00ca\u00cc\5\32\16\2\u00cb\u00ca\3\2\2\2\u00cc\u00cf"+
-		"\3\2\2\2\u00cd\u00cb\3\2\2\2\u00cd\u00ce\3\2\2\2\u00ce\u00d0\3\2\2\2\u00cf"+
-		"\u00cd\3\2\2\2\u00d0\u00d1\7\b\2\2\u00d1\u00d2\5$\23\2\u00d2\u00d3\7\r"+
-		"\2\2\u00d3\35\3\2\2\2\u00d4\u00d6\5&\24\2\u00d5\u00d4\3\2\2\2\u00d6\u00d9"+
-		"\3\2\2\2\u00d7\u00d5\3\2\2\2\u00d7\u00d8\3\2\2\2\u00d8\u00de\3\2\2\2\u00d9"+
-		"\u00d7\3\2\2\2\u00da\u00db\7\25\2\2\u00db\u00dd\5&\24\2\u00dc\u00da\3"+
-		"\2\2\2\u00dd\u00e0\3\2\2\2\u00de\u00dc\3\2\2\2\u00de\u00df\3\2\2\2\u00df"+
-		"\37\3\2\2\2\u00e0\u00de\3\2\2\2\u00e1\u00e5\5*\26\2\u00e2\u00e5\5,\27"+
-		"\2\u00e3\u00e5\5\24\13\2\u00e4\u00e1\3\2\2\2\u00e4\u00e2\3\2\2\2\u00e4"+
-		"\u00e3\3\2\2\2\u00e5!\3\2\2\2\u00e6\u00e7\5\34\17\2\u00e7\u00e8\7\2\2"+
-		"\3\u00e8#\3\2\2\2\u00e9\u00ec\5*\26\2\u00ea\u00ec\5,\27\2\u00eb\u00e9"+
-		"\3\2\2\2\u00eb\u00ea\3\2\2\2\u00ec\u00ef\3\2\2\2\u00ed\u00eb\3\2\2\2\u00ed"+
-		"\u00ee\3\2\2\2\u00ee%\3\2\2\2\u00ef\u00ed\3\2\2\2\u00f0\u00f4\5(\25\2"+
-		"\u00f1\u00f4\5.\30\2\u00f2\u00f4\5\24\13\2\u00f3\u00f0\3\2\2\2\u00f3\u00f1"+
-		"\3\2\2\2\u00f3\u00f2\3\2\2\2\u00f4\'\3\2\2\2\u00f5\u00f6\7\34\2\2\u00f6"+
-		")\3\2\2\2\u00f7\u00f8\5\2\2\2\u00f8\u00f9\7\34\2\2\u00f9\u00fa\7\31\2"+
-		"\2\u00fa\u00fb\5.\30\2\u00fb\u00fc\7\27\2\2\u00fc+\3\2\2\2\u00fd\u00fe"+
-		"\7\30\2\2\u00fe\u00ff\7\34\2\2\u00ff\u0100\7\27\2\2\u0100-\3\2\2\2\u0101"+
-		"\u0102\t\2\2\2\u0102/\3\2\2\2\34\65=EMU]emuy\u0081\u0084\u0089\u0091\u009e"+
-		"\u00a5\u00b0\u00b4\u00c0\u00cd\u00d7\u00de\u00e4\u00eb\u00ed\u00f3";
+		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
+		"\3\2\3\2\3\2\7\2\66\n\2\f\2\16\29\13\2\3\2\3\2\3\2\7\2>\n\2\f\2\16\2A"+
+		"\13\2\3\2\3\2\3\2\7\2F\n\2\f\2\16\2I\13\2\3\2\3\2\3\2\7\2N\n\2\f\2\16"+
+		"\2Q\13\2\3\2\3\2\3\2\7\2V\n\2\f\2\16\2Y\13\2\3\2\3\2\3\2\7\2^\n\2\f\2"+
+		"\16\2a\13\2\3\2\3\2\3\2\7\2f\n\2\f\2\16\2i\13\2\3\2\3\2\3\2\7\2n\n\2\f"+
+		"\2\16\2q\13\2\3\2\3\2\3\2\7\2v\n\2\f\2\16\2y\13\2\3\2\5\2|\n\2\3\3\3\3"+
+		"\3\3\3\3\7\3\u0082\n\3\f\3\16\3\u0085\13\3\5\3\u0087\n\3\3\4\3\4\3\4\7"+
+		"\4\u008c\n\4\f\4\16\4\u008f\13\4\3\4\3\4\3\5\3\5\3\6\5\6\u0096\n\6\3\6"+
+		"\3\6\3\6\7\6\u009b\n\6\f\6\16\6\u009e\13\6\3\6\3\6\7\6\u00a2\n\6\f\6\16"+
+		"\6\u00a5\13\6\3\6\3\6\3\7\3\7\3\7\3\b\3\b\3\b\5\b\u00af\n\b\3\t\3\t\5"+
+		"\t\u00b3\n\t\3\n\3\n\3\n\3\n\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\f\3\f"+
+		"\3\f\7\f\u00c3\n\f\f\f\16\f\u00c6\13\f\3\r\3\r\3\16\3\16\3\16\3\17\3\17"+
+		"\3\17\7\17\u00d0\n\17\f\17\16\17\u00d3\13\17\3\17\3\17\3\17\3\17\3\20"+
+		"\7\20\u00da\n\20\f\20\16\20\u00dd\13\20\3\21\7\21\u00e0\n\21\f\21\16\21"+
+		"\u00e3\13\21\3\21\3\21\7\21\u00e7\n\21\f\21\16\21\u00ea\13\21\3\22\3\22"+
+		"\3\22\5\22\u00ef\n\22\3\23\3\23\3\23\3\24\3\24\7\24\u00f6\n\24\f\24\16"+
+		"\24\u00f9\13\24\3\25\3\25\3\25\5\25\u00fe\n\25\3\26\3\26\3\27\3\27\3\27"+
+		"\3\27\3\27\3\27\3\30\3\30\3\30\3\30\3\31\3\31\3\31\2\2\32\2\4\6\b\n\f"+
+		"\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\2\3\3\2\32\33\u011a\2{\3\2\2\2"+
+		"\4\u0086\3\2\2\2\6\u0088\3\2\2\2\b\u0092\3\2\2\2\n\u0095\3\2\2\2\f\u00a8"+
+		"\3\2\2\2\16\u00ab\3\2\2\2\20\u00b2\3\2\2\2\22\u00b4\3\2\2\2\24\u00ba\3"+
+		"\2\2\2\26\u00bf\3\2\2\2\30\u00c7\3\2\2\2\32\u00c9\3\2\2\2\34\u00cc\3\2"+
+		"\2\2\36\u00db\3\2\2\2 \u00e1\3\2\2\2\"\u00ee\3\2\2\2$\u00f0\3\2\2\2&\u00f7"+
+		"\3\2\2\2(\u00fd\3\2\2\2*\u00ff\3\2\2\2,\u0101\3\2\2\2.\u0107\3\2\2\2\60"+
+		"\u010b\3\2\2\2\62\67\7\4\2\2\63\64\7\n\2\2\64\66\7\16\2\2\65\63\3\2\2"+
+		"\2\669\3\2\2\2\67\65\3\2\2\2\678\3\2\2\28|\3\2\2\29\67\3\2\2\2:?\7\20"+
+		"\2\2;<\7\n\2\2<>\7\16\2\2=;\3\2\2\2>A\3\2\2\2?=\3\2\2\2?@\3\2\2\2@|\3"+
+		"\2\2\2A?\3\2\2\2BG\7\3\2\2CD\7\n\2\2DF\7\16\2\2EC\3\2\2\2FI\3\2\2\2GE"+
+		"\3\2\2\2GH\3\2\2\2H|\3\2\2\2IG\3\2\2\2JO\7\f\2\2KL\7\n\2\2LN\7\16\2\2"+
+		"MK\3\2\2\2NQ\3\2\2\2OM\3\2\2\2OP\3\2\2\2P|\3\2\2\2QO\3\2\2\2RW\7\17\2"+
+		"\2ST\7\n\2\2TV\7\16\2\2US\3\2\2\2VY\3\2\2\2WU\3\2\2\2WX\3\2\2\2X|\3\2"+
+		"\2\2YW\3\2\2\2Z_\7\22\2\2[\\\7\n\2\2\\^\7\16\2\2][\3\2\2\2^a\3\2\2\2_"+
+		"]\3\2\2\2_`\3\2\2\2`|\3\2\2\2a_\3\2\2\2bg\7\5\2\2cd\7\n\2\2df\7\16\2\2"+
+		"ec\3\2\2\2fi\3\2\2\2ge\3\2\2\2gh\3\2\2\2h|\3\2\2\2ig\3\2\2\2jo\7\6\2\2"+
+		"kl\7\n\2\2ln\7\16\2\2mk\3\2\2\2nq\3\2\2\2om\3\2\2\2op\3\2\2\2p|\3\2\2"+
+		"\2qo\3\2\2\2rw\7\21\2\2st\7\n\2\2tv\7\16\2\2us\3\2\2\2vy\3\2\2\2wu\3\2"+
+		"\2\2wx\3\2\2\2x|\3\2\2\2yw\3\2\2\2z|\5\26\f\2{\62\3\2\2\2{:\3\2\2\2{B"+
+		"\3\2\2\2{J\3\2\2\2{R\3\2\2\2{Z\3\2\2\2{b\3\2\2\2{j\3\2\2\2{r\3\2\2\2{"+
+		"z\3\2\2\2|\3\3\2\2\2}\u0087\5\2\2\2~\u0083\7\t\2\2\177\u0080\7\n\2\2\u0080"+
+		"\u0082\7\16\2\2\u0081\177\3\2\2\2\u0082\u0085\3\2\2\2\u0083\u0081\3\2"+
+		"\2\2\u0083\u0084\3\2\2\2\u0084\u0087\3\2\2\2\u0085\u0083\3\2\2\2\u0086"+
+		"}\3\2\2\2\u0086~\3\2\2\2\u0087\5\3\2\2\2\u0088\u0089\5\n\6\2\u0089\u008d"+
+		"\7\b\2\2\u008a\u008c\5\"\22\2\u008b\u008a\3\2\2\2\u008c\u008f\3\2\2\2"+
+		"\u008d\u008b\3\2\2\2\u008d\u008e\3\2\2\2\u008e\u0090\3\2\2\2\u008f\u008d"+
+		"\3\2\2\2\u0090\u0091\7\r\2\2\u0091\7\3\2\2\2\u0092\u0093\7\34\2\2\u0093"+
+		"\t\3\2\2\2\u0094\u0096\5\20\t\2\u0095\u0094\3\2\2\2\u0095\u0096\3\2\2"+
+		"\2\u0096\u0097\3\2\2\2\u0097\u0098\5\b\5\2\u0098\u009c\7\23\2\2\u0099"+
+		"\u009b\5\16\b\2\u009a\u0099\3\2\2\2\u009b\u009e\3\2\2\2\u009c\u009a\3"+
+		"\2\2\2\u009c\u009d\3\2\2\2\u009d\u00a3\3\2\2\2\u009e\u009c\3\2\2\2\u009f"+
+		"\u00a0\7\25\2\2\u00a0\u00a2\5\16\b\2\u00a1\u009f\3\2\2\2\u00a2\u00a5\3"+
+		"\2\2\2\u00a3\u00a1\3\2\2\2\u00a3\u00a4\3\2\2\2\u00a4\u00a6\3\2\2\2\u00a5"+
+		"\u00a3\3\2\2\2\u00a6\u00a7\7\24\2\2\u00a7\13\3\2\2\2\u00a8\u00a9\7\31"+
+		"\2\2\u00a9\u00aa\5(\25\2\u00aa\r\3\2\2\2\u00ab\u00ac\5\20\t\2\u00ac\u00ae"+
+		"\7\34\2\2\u00ad\u00af\5\f\7\2\u00ae\u00ad\3\2\2\2\u00ae\u00af\3\2\2\2"+
+		"\u00af\17\3\2\2\2\u00b0\u00b3\5\4\3\2\u00b1\u00b3\5\26\f\2\u00b2\u00b0"+
+		"\3\2\2\2\u00b2\u00b1\3\2\2\2\u00b3\21\3\2\2\2\u00b4\u00b5\5\b\5\2\u00b5"+
+		"\u00b6\7\23\2\2\u00b6\u00b7\5 \21\2\u00b7\u00b8\7\24\2\2\u00b8\u00b9\7"+
+		"\27\2\2\u00b9\23\3\2\2\2\u00ba\u00bb\5\b\5\2\u00bb\u00bc\7\23\2\2\u00bc"+
+		"\u00bd\5 \21\2\u00bd\u00be\7\24\2\2\u00be\25\3\2\2\2\u00bf\u00c4\7\26"+
+		"\2\2\u00c0\u00c1\7\n\2\2\u00c1\u00c3\7\16\2\2\u00c2\u00c0\3\2\2\2\u00c3"+
+		"\u00c6\3\2\2\2\u00c4\u00c2\3\2\2\2\u00c4\u00c5\3\2\2\2\u00c5\27\3\2\2"+
+		"\2\u00c6\u00c4\3\2\2\2\u00c7\u00c8\7\34\2\2\u00c8\31\3\2\2\2\u00c9\u00ca"+
+		"\7\13\2\2\u00ca\u00cb\5\30\r\2\u00cb\33\3\2\2\2\u00cc\u00cd\7\7\2\2\u00cd"+
+		"\u00d1\5\30\r\2\u00ce\u00d0\5\32\16\2\u00cf\u00ce\3\2\2\2\u00d0\u00d3"+
+		"\3\2\2\2\u00d1\u00cf\3\2\2\2\u00d1\u00d2\3\2\2\2\u00d2\u00d4\3\2\2\2\u00d3"+
+		"\u00d1\3\2\2\2\u00d4\u00d5\7\b\2\2\u00d5\u00d6\5\36\20\2\u00d6\u00d7\7"+
+		"\r\2\2\u00d7\35\3\2\2\2\u00d8\u00da\5\6\4\2\u00d9\u00d8\3\2\2\2\u00da"+
+		"\u00dd\3\2\2\2\u00db\u00d9\3\2\2\2\u00db\u00dc\3\2\2\2\u00dc\37\3\2\2"+
+		"\2\u00dd\u00db\3\2\2\2\u00de\u00e0\5(\25\2\u00df\u00de\3\2\2\2\u00e0\u00e3"+
+		"\3\2\2\2\u00e1\u00df\3\2\2\2\u00e1\u00e2\3\2\2\2\u00e2\u00e8\3\2\2\2\u00e3"+
+		"\u00e1\3\2\2\2\u00e4\u00e5\7\25\2\2\u00e5\u00e7\5(\25\2\u00e6\u00e4\3"+
+		"\2\2\2\u00e7\u00ea\3\2\2\2\u00e8\u00e6\3\2\2\2\u00e8\u00e9\3\2\2\2\u00e9"+
+		"!\3\2\2\2\u00ea\u00e8\3\2\2\2\u00eb\u00ef\5,\27\2\u00ec\u00ef\5.\30\2"+
+		"\u00ed\u00ef\5\22\n\2\u00ee\u00eb\3\2\2\2\u00ee\u00ec\3\2\2\2\u00ee\u00ed"+
+		"\3\2\2\2\u00ef#\3\2\2\2\u00f0\u00f1\5\34\17\2\u00f1\u00f2\7\2\2\3\u00f2"+
+		"%\3\2\2\2\u00f3\u00f6\5,\27\2\u00f4\u00f6\5.\30\2\u00f5\u00f3\3\2\2\2"+
+		"\u00f5\u00f4\3\2\2\2\u00f6\u00f9\3\2\2\2\u00f7\u00f5\3\2\2\2\u00f7\u00f8"+
+		"\3\2\2\2\u00f8\'\3\2\2\2\u00f9\u00f7\3\2\2\2\u00fa\u00fe\5*\26\2\u00fb"+
+		"\u00fe\5\60\31\2\u00fc\u00fe\5\24\13\2\u00fd\u00fa\3\2\2\2\u00fd\u00fb"+
+		"\3\2\2\2\u00fd\u00fc\3\2\2\2\u00fe)\3\2\2\2\u00ff\u0100\7\34\2\2\u0100"+
+		"+\3\2\2\2\u0101\u0102\5\2\2\2\u0102\u0103\7\34\2\2\u0103\u0104\7\31\2"+
+		"\2\u0104\u0105\5(\25\2\u0105\u0106\7\27\2\2\u0106-\3\2\2\2\u0107\u0108"+
+		"\7\30\2\2\u0108\u0109\5(\25\2\u0109\u010a\7\27\2\2\u010a/\3\2\2\2\u010b"+
+		"\u010c\t\2\2\2\u010c\61\3\2\2\2\35\67?GOW_gow{\u0083\u0086\u008d\u0095"+
+		"\u009c\u00a3\u00ae\u00b2\u00c4\u00d1\u00db\u00e1\u00e8\u00ee\u00f5\u00f7"+
+		"\u00fd";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
